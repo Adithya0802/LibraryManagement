@@ -22,12 +22,12 @@ html {
     border-color: rgba(255, 255, 255, .2) !important;
     color: whitesmoke !important;
     top: 0;
-    width: 100%;
 }
-
 .login-header-txt {
     font-size: 15px;
     padding-top: 10px;
+    padding-top: 15px;
+    text-align: center;
 }
 
 .top-bar {
@@ -40,11 +40,93 @@ html {
     right: 0 !important;
     left: 0 !important;
     width: 100%;
+    text-align: center;
+
+
 }
 
 .header-text {
     font-size: 21px;
 }
+   
+
+.sub-header {
+    font-size: 19px;
+}
+
+.welfare-icon {
+    margin-left: -5%;
+}
+
+.menu-icon {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 2%;
+}
+
+.menu-logo {
+    margin-left: 5px;
+}
+
+.status-icon-green {
+    color: #1bd521;
+}
+
+.status-icon-red {
+    color: #f00a0a;
+}
+
+@media only screen and (max-width: 600px) {
+    .header-text {
+        font-size: 18px !important;
+    }
+
+    .sub-header {
+        margin-top: 2px !important;
+        font-size: 14px !important;
+    }
+
+    .welfare-icon {
+        margin-left: -2% !important;
+    }
+
+    .footer-text {
+        font-size: 15px !important;
+    }
+
+    .login-header-txt {
+        font-size: 13px !important;
+        padding-top: 5px !important;
+    }
+
+    .menu-icon {
+        margin-right: 10px !important;
+    }
+
+    .menu-logo {
+        width: 55px !important;
+    }
+
+    .content {
+        top: 90px !important;
+    }
+}
+
+/* registration */
+.div-main {
+    padding: 20px 10px 0 10px !important;
+}
+
+.div-header {
+    padding: 5px;
+    background: aliceblue;
+    color: #105c61;
+}
+
+.border-blue {
+    border: 0.5px solid aliceblue;
+}
+
 .footer {
     /* position: absolute; */
     position: fixed;
@@ -62,3 +144,4 @@ html {
 .footer-text {
     font-size: 16px;
 }
+

@@ -19,28 +19,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StudentregistrationComponent } from './studentregistration/studentregistration.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentregistrationComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ButtonModule,
-    InputTextModule,
-    CardModule,
-    DropdownModule,
-    SidebarModule ,
-    PanelMenuModule,
-    PanelModule,
-    TabViewModule,
-    CalendarModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
