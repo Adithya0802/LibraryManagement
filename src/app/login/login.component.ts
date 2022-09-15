@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,9 +20,16 @@ onShowPswd() {
 throw new Error('Method not implemented.');
 }
 
-  constructor() { }
+  constructor(private router :Router) { }
 
   ngOnInit(): void {
   }
-
+ onSave(){
+    this.router.navigate(['/studentregistration']);
+  
+  }
+  onSubmit(){
+    this.router.navigate(['/bookdetails']);
+  
+  }
 }

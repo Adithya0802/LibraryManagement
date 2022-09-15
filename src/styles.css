@@ -33,7 +33,7 @@ html {
 .top-bar {
     position: absolute !important;
     overflow: hidden !important;
-    background-color: #0b73fc !important;
+   
     border-color: rgba(255, 255, 255, .2) !important;
     color: whitesmoke !important;
     top: 0 !important;
@@ -136,9 +136,9 @@ html {
     bottom: 0 !important;
     width: 100%;
     text-align: center;
-    background-color: #0b73fc !important;
+    background-color: #edf0f5 !important;
     border-color: rgba(255, 255, 255, .2) !important;
-    color: whitesmoke !important;
+    color: rgb(8, 8, 8) !important;
 }
 
 .footer-text {
