@@ -21,6 +21,8 @@ import { StudentregistrationComponent } from './studentregistration/studentregis
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { IssuebookComponent } from './issuebook/issuebook.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -30,7 +32,9 @@ import { HeaderComponent } from './header/header.component';
     StudentregistrationComponent,
     FooterComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    IssuebookComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

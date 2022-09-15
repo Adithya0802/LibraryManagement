@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  router: any;
 onLogin() {
 throw new Error('Method not implemented.');
 }
@@ -23,5 +24,7 @@ throw new Error('Method not implemented.');
 
   ngOnInit(): void {
   }
-
+  onSave(){
+    this.router.navigate(['/studentregistartion']);
+  }
 }
