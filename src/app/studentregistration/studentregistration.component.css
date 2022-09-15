@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
+=======
+.gradient-custom {
+  
+    background: white;
+    }
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+>>>>>>> a72e40c042ddfead205c2080adaadf0f7e1b2bd0
     font-size: 1rem;
     line-height: 2.15;
     padding-left: .75em;

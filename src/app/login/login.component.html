@@ -14,6 +14,13 @@
    
 
 </head>
+<div style="height: 50px;" class="login-header">
+  <div class="txt-center login-header-txt">LIBRARY MANAGEMENT SYSTEM</div>
+</div>
+<div class="p-col-1"></div>
+<div class="p-col-12 txt-center">
+  <label>LOGIN</label>
+</div>
 
 <!-- Section: Design Block -->
 <section class="custom">
@@ -30,17 +37,18 @@
             <form>
 
               <!-- Email input -->
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example1">Email address</label>
+             
+              <div class="form-outline col-1-md-6 mb-4">
+                <label class="form-label" for="form2Example1">Reg No:</label>
                 <input class="input" type="email" id="form2Example1" class="form-control" />
               </div>
-  
+              
               <!-- Password input -->
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example2">Password</label>
+              <div class="form-outline col-1-md-6 mb-4">
+                <label class="form-label" for="form2Example2">Password:</label>
                 <input class="input" type="password" id="form2Example2" class="form-control" />
               </div>
-  
+             
               <!-- 2 column grid layout for inline styling -->
               <div class="row mb-4">
                 <div class="col d-flex justify-content-center">
@@ -51,7 +59,7 @@
                   </div>
                 </div>
   
-                <div class="col">
+                <div class="col d-flex justify-content-center">
                   <!-- Simple link -->
                   <a href="#!">Forgot password?</a>
                 </div>
@@ -59,8 +67,10 @@
   
               <!-- Submit button -->
           
-              <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+              <button type="button" class="btn btn-primary btn-block mb-4"(click)="onSubmit()">Sign in</button>
               <div class="text-center">
+                <p>Not a member? <button type="button" class="btn btn-primary btn-block mb-4" (click)="onSave()">Register</button></p>
+                <p>or sign up with:</p>
               </div>
 
 
