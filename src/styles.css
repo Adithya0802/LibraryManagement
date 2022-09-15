@@ -1,17 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+body,
+html {
+    width: 100% !important;
+    height: 100% !important;
+    font-family: Verdana, Geneva, sans-serif !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    color: #474747 !important;
+    background-color: #effdfc !important;
+    line-height: 1.6em !important;
+    text-align: center;
+   
+}
 
-
-
+.form-mandatory-field {
+    color: #ff0131;
+}
 .login-header {
-    background-color: #08747B !important;
+    background-color: #7b2c08 !important;
     border-color: rgba(255, 255, 255, .2) !important;
     color: whitesmoke !important;
     top: 0;
-    right: 10;
-    width: 100%;
 }
-
 .login-header-txt {
     font-size: 15px;
+    padding-top: 10px;
     padding-top: 15px;
     text-align: center;
 }
@@ -33,8 +47,8 @@
 
 .header-text {
     font-size: 21px;
-    text-align: center;
 }
+   
 
 .sub-header {
     font-size: 19px;
@@ -131,8 +145,6 @@
     font-size: 16px;
 }
 
-
-/*....*/
 
 
 

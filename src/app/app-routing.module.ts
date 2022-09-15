@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
+
+import { StudentregistrationComponent } from './studentregistration/studentregistration.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'login',component: LoginComponent},
   { path: 'header',component: HeaderComponent},
+  { path : 'studentregistration' , component : StudentregistrationComponent },
+  { path : 'footer', component : FooterComponent}
 ];
 
 @NgModule({
