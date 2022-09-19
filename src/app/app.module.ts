@@ -17,6 +17,9 @@ import { HomeComponent } from './home/home.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingComponent } from './setting/setting.component';
+import { ForgetComponent } from './forget/forget.component';
+import { LibrarienComponent } from './librarien/librarien.component';
+import { StatusComponent } from './status/status.component';
 import { LibregComponent } from './libreg/libreg.component';
 
 
@@ -33,6 +36,9 @@ import { LibregComponent } from './libreg/libreg.component';
     BookdetailsComponent,
     DashboardComponent,
     SettingComponent,
+    ForgetComponent,
+    LibrarienComponent,
+    StatusComponent,
     LibregComponent
   ],
   imports: [

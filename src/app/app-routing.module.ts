@@ -11,6 +11,10 @@ import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingComponent } from './setting/setting.component';
 import { LibregComponent } from './libreg/libreg.component';
+import { ForgetComponent } from './forget/forget.component';
+import { LibrarienComponent } from './librarien/librarien.component';
+import { StatusComponent } from './status/status.component';
+
 
 const routes: Routes = [
   { path: 'login',component: LoginComponent},
@@ -23,7 +27,10 @@ const routes: Routes = [
   { path : 'dashboard', component : DashboardComponent},
   { path : 'settings' , component : SettingComponent},
   { path: '',redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'libreg' , component : LibregComponent}
+  { path: 'libreg', component : LibregComponent},
+  { path : 'forget' , component : ForgetComponent},
+  { path : 'librarien' , component : LibrarienComponent},
+  { path : 'status' , component : StatusComponent},
 ];
 
 @NgModule({
