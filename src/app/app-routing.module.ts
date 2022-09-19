@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingComponent } from './setting/setting.component';
+import { LibregComponent } from './libreg/libreg.component';
 
 const routes: Routes = [
   { path: 'login',component: LoginComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path : 'dashboard', component : DashboardComponent},
   { path : 'settings' , component : SettingComponent},
   { path: '',redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'libreg' , component : LibregComponent}
 ];
 
 @NgModule({

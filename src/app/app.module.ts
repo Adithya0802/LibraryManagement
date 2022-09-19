@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingComponent } from './setting/setting.component';
+import { LibregComponent } from './libreg/libreg.component';
 
 
 
@@ -31,7 +32,8 @@ import { SettingComponent } from './setting/setting.component';
     HomeComponent,
     BookdetailsComponent,
     DashboardComponent,
-    SettingComponent
+    SettingComponent,
+    LibregComponent
   ],
   imports: [
     BrowserModule,
