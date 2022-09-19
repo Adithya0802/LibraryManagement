@@ -10,6 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingComponent } from './setting/setting.component';
+import { ForgetComponent } from './forget/forget.component';
+import { LibrarienComponent } from './librarien/librarien.component';
+import { StatusComponent } from './status/status.component';
+
 
 const routes: Routes = [
   { path: 'login',component: LoginComponent},
@@ -22,6 +26,9 @@ const routes: Routes = [
   { path : 'dashboard', component : DashboardComponent},
   { path : 'settings' , component : SettingComponent},
   { path: '',redirectTo: '/dashboard', pathMatch: 'full' },
+  { path : 'forget' , component : ForgetComponent},
+  { path : 'librarien' , component : LibrarienComponent},
+  { path : 'status' , component : StatusComponent},
 ];
 
 @NgModule({

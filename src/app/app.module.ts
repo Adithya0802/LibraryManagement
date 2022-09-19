@@ -17,6 +17,9 @@ import { HomeComponent } from './home/home.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingComponent } from './setting/setting.component';
+import { ForgetComponent } from './forget/forget.component';
+import { LibrarienComponent } from './librarien/librarien.component';
+import { StatusComponent } from './status/status.component';
 
 
 
@@ -31,7 +34,10 @@ import { SettingComponent } from './setting/setting.component';
     HomeComponent,
     BookdetailsComponent,
     DashboardComponent,
-    SettingComponent
+    SettingComponent,
+    ForgetComponent,
+    LibrarienComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,
