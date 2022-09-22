@@ -16,12 +16,9 @@
 <div class="container">
   <h2>Student Details</h2>
   <form action="/action_page.php">
-    <div class="col-md-6">
-      <label for="reg">Reg No</label>
-      <input type="reg" class="form-control" id="reg" placeholder="Enter reg no" name="reg">
-    </div>
+   
     <div class="form-group">
-        <div class="col-md-6">
+        <div class="col-mb-4">
             <label class="form-label" for="form3Example1m">Date</label><span
             class="form-mandatory-field">*</span>
             <div id="date" class=" datepicker">
@@ -32,18 +29,20 @@
     </div><br>
     <br>
     <br>
-    <button type="button" class="btn btn-default">Submit</button>
+    <button class="btn btn-primary mr-3">Submit</button>
   <br><br>
   <div class="col-lg-9 col-md-8">  
     <div class="table-responsive">  
       <table class="table table-striped">  
         <thead class="thead-inverse">  
           <tr>  
-            <th> S.No  </th>  
-            <th>Student RegNo  </th>  
+            <th> Reg no </th>  
+            <th>Student Name  </th>  
             <th>Book Id </th>  
             <th>Book name </th>  
             <th>Number books </th>  
+            <th>Borrow Date</th>
+            <th>Due Date</th>
             <th>Status</th>
           </tr>  
         </thead>  
