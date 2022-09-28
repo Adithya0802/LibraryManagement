@@ -10,7 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <section class="h-200 bg-dark">
+  <form #f="ngForm">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col">
@@ -104,9 +106,20 @@
   
   
                   <div class="form-outline mb-4">
-                    <label class="form-label" for="form3Example90">Pincode</label><span
-                    class="form-mandatory-field">*</span>
-                    <input type="text" id="form3Example90" class="form-control form-control-lg" />
+                    <div><label for="_pincode"
+               [ngStyle]="{'color': (pincode !== null && pincode !== undefined) ? (pincode>pincode_max ? 'crimson' : '#495057') : '#495057'}">
+             Pincode<span class="form-mandatory-field">*</span></label>
+               </div>
+               <input class="text" name="_pincode" class="form-control form-control-lg"  pInputText minlength="6"
+                 maxlength="6" [(ngModel)]="pincode1" appInputFormat="digitOnly" pattern="^6[0-4]\d{4}$" required />
+   <div>  <span *ngIf="(pincode != null && pincode !== undefined)" >
+    <span *ngIf="(pincode.invalid)||(pincode>pincode_max)"
+    style="color: crimson;font-size: 12px;">Invalid pincode</span>
+   
+          </span>
+  
+      </div>
+
                    
                   </div>
   
@@ -138,7 +151,9 @@
   
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example97">Email ID</label>
-                    <input type="text" id="form3Example97" class="form-control form-control-lg" />
+                    <input type="text" id="form3Example97" class="form-control form-control-lg" pInputText
+                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+                    required />
                     
                   </div>
                   <div class="row">
@@ -146,16 +161,23 @@
                       <div class="form-outline">
                         <label class="form-label" for="form3Example1m">Password</label><span
                         class="form-mandatory-field">*</span>
-                        <input type="text" id="form3Example1m" class="form-control form-control-lg" />
-                        
+                       
+                        <div> <input type="password" class="form-control form-control-lg" name="_newpwd" pInputText [(ngModel)]="Password"
+                          minlength="8" maxlength="12" (input)="checkPassword()" required>
+                   </div>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
                         <label class="form-label" for="form3Example1n">confirm password</label><span
                         class="form-mandatory-field">*</span>
-                        <input type="text" id="form3Example1n" class="form-control form-control-lg" />
-                        
+                       
+                        <div> <input type="password" class="form-control form-control-lg" name="_confirmpwd" pInputText [(ngModel)]="confirmPassword"
+                          minlength="8" maxlength="12" (input)="checkPassword()" required></div>
+                          <div *ngIf="showErrMsg" style="color: rgb(250, 89, 15); font-size: 12px;">Password did
+                              not match</div>
+                              <div *ngIf="showMatchMsg" style="color: rgb(28, 182, 92); font-size: 12px; text-align: left;">Password
+                                  matched!</div>
                       </div>
                     </div>
                   </div>
@@ -172,4 +194,5 @@
         </div>
       </div>
     </div>
+  </form>
   </section>
