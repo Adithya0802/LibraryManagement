@@ -36,7 +36,9 @@
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example3c">Your Email</label><span
                         class="form-mandatory-field">*</span>
-                        <input type="email" id="form3Example3c" class="form-control" />
+                        <input type="email" id="form3Example3c" class="form-control" [(ngModel)]="emailid" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+                        required />
+                        
                        
                       </div>
                     </div>
@@ -46,8 +48,12 @@
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4c">Password</label><span
                         class="form-mandatory-field">*</span>
-                        <input type="password" id="form3Example4c" class="form-control" />
                         
+                        <div> <input type="password" class="form-control " name="_newpwd" pInputText [(ngModel)]="Password"
+
+                          minlength="8" maxlength="12" (input)="checkPassword()" required>
+
+                   </div>
                       </div>
                     </div>
   
@@ -56,7 +62,18 @@
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example4cd">Repeat your password</label><span
                         class="form-mandatory-field">*</span>
-                        <input type="password" id="form3Example4cd" class="form-control" />
+                       
+                        <div> <input type="password" class="form-control form-control" name="_confirmpwd" pInputText [(ngModel)]="confirmPassword"
+
+                          minlength="8" maxlength="12" (input)="checkPassword()" required></div>
+
+                          <div *ngIf="showErrMsg" style="color: rgb(250, 89, 15); font-size: 12px;">Password did
+
+                              not match</div>
+
+                              <div *ngIf="showMatchMsg" style="color: rgb(28, 182, 92); font-size: 12px; text-align: left;">Password
+
+                                  matched!</div>
                         
                       </div>
                     </div>

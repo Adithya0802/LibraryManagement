@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./librarien.component.css']
 })
 export class LibrarienComponent implements OnInit {
+  username: any;
+  password: any;
 
 
   constructor(private router :Router) { }
@@ -14,6 +16,12 @@ export class LibrarienComponent implements OnInit {
   ngOnInit(): void {
   }
 onSave(){
-  this.router.navigate(['/status']);
+ // this.router.navigate(['/status']);
+
+ const params={
+'username':this.username,
+'password':this.password, 
+
+ }
 }
 }
