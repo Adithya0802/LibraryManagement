@@ -41,6 +41,7 @@ Password: any;
   password: any;
   password1: any;
   newPassword: any;
+  name:any;
 
 
 
