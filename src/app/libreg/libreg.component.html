@@ -32,51 +32,50 @@
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
-                      
                       <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example3c">Your Email</label><span
                         class="form-mandatory-field">*</span>
                         <input type="email" id="form3Example3c" class="form-control" [(ngModel)]="emailid" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
                         required />
-                        
-                       
                       </div>
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
                      
                       <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="form3Example4c">Password</label><span
+                        <label for="phone">New password</label><span
                         class="form-mandatory-field">*</span>
-                        
-                        <div> <input type="password" class="form-control " name="_newpwd" pInputText [(ngModel)]="Password"
+                <div> <input type="password" name="_newpwd"   autocomplete="off" pInputText [(ngModel)]="password"
+                    minlength="8" maxlength="12" (input)="check(password)" required>
+                
 
-                          minlength="8" maxlength="12" (input)="checkPassword()" required>
-
-                   </div>
+             </div>
                       </div>
                     </div>
-  
+                    <label for="phone">ComfirmPassword</label><span
+                    class="form-mandatory-field">*</span>
                     <div class="d-flex flex-row align-items-center mb-4">
-                      
                       <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="form3Example4cd">Repeat your password</label><span
-                        class="form-mandatory-field">*</span>
-                       
-                        <div> <input type="password" class="form-control form-control" name="_confirmpwd" pInputText [(ngModel)]="confirmPassword"
-
+                        <div> <input type="password" name="_confirmpwd"  autocomplete="off" pInputText [(ngModel)]="password1"
                           minlength="8" maxlength="12" (input)="checkPassword()" required></div>
-
-                          <div *ngIf="showErrMsg" style="color: rgb(250, 89, 15); font-size: 12px;">Password did
-
-                              not match</div>
-
-                              <div *ngIf="showMatchMsg" style="color: rgb(28, 182, 92); font-size: 12px; text-align: left;">Password
-
-                                  matched!</div>
-                        
-                      </div>
-                    </div>
+                      <div *ngIf="showErrMsg" style="color: rgb(250, 15, 62); font-size: 12px;">Password did
+                          not match</div>
+                          <div *ngIf="showMatchMsg" style="color: rgb(28, 182, 92); font-size: 12px; text-align: left;">Password
+                              matched!</div>
+              
+                  <div *ngIf="SpecialCharErrMsg"
+                  style="color: rgb(250, 15, 62); font-size: 12px; text-align: left;">Atleast one Special
+                  Character must!</div>
+                <div *ngIf="NumericErrMsg"
+                  style="color: rgb(250, 15, 62); font-size: 12px; text-align: left;">Atleast one Numeric(0-9)
+                  must!</div>
+                <div *ngIf="UpperCaseErrMsg"
+                  style="color: rgb(250, 15, 62); font-size: 12px; text-align: left">Atleast one
+                  Uppercase(A-Z) must!</div>
+                <div *ngIf="LengthErrMsg" style="color: rgb(250, 15, 62); font-size: 12px; text-align: left">
+                  Minimum 8 Characters!</div>
+              </div></div>            
+              
   
                     <div class="form-check d-flex justify-content-center mb-5">
                       <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
@@ -88,6 +87,11 @@
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       <button type="button" class="btn btn-primary btn-lg"(click)="onSave()">Register</button>
                     </div>
+
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <button type="button" class="btn btn-primary btn-lg">View</button>
+                    </div>
+                    
   
                   </form>
   

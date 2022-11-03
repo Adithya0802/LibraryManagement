@@ -14,6 +14,7 @@ import { LibregComponent } from './libreg/libreg.component';
 import { ForgetComponent } from './forget/forget.component';
 import { LibrarienComponent } from './librarien/librarien.component';
 import { StatusComponent } from './status/status.component';
+import { BookinfoComponent } from './bookinfo/bookinfo.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path : 'forget' , component : ForgetComponent},
   { path : 'librarien' , component : LibrarienComponent},
   { path : 'status' , component : StatusComponent},
+  { path : 'bookinfo',component : BookinfoComponent},
 ];
 
 @NgModule({

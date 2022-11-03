@@ -12,35 +12,33 @@ export class StudentregistrationComponent implements OnInit {
   Password: any;
   confirmPassword: any;
   email: any;
-  
   commodityGroups?: any;
   checked2:boolean=true;
   value: any;
- 
   cols: any;
   data: any[] =[];
-  
   FirstName:any;
   LastName: any;
   date: any;
-  
   phoneno:any;
-  
   pincode1:any;
   address1: any;
   address2:any;
   showErrMsg: boolean | undefined;
   showMatchMsg!: boolean;
-  
+
   constructor(private router :Router) { }
 
   ngOnInit(): void {
   }
   onSave(){
 
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
+
+
 
 }
+
 checkPassword() {
   if (this.Password !== undefined && this.Password !== null && this.Password.trim() !== '' &&
   this.confirmPassword !== undefined && this.confirmPassword !== null && this.confirmPassword.trim() !== '') {
@@ -55,4 +53,6 @@ checkPassword() {
     this.showErrMsg = false;
   }
 }
+
+
 }

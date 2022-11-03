@@ -6,18 +6,68 @@
 	<meta name="keywords" content="forgot password page, basic html and css">
 	<title>Forgot Password Page - HTML + CSS</title>
 </head>
+
 <body>
 	<div class="row">
 		<h1>Forgot Password</h1>
 		<h6 class="information-text">Enter your registered email to reset your password.</h6>
 		<div class="form-group">
-			<input type="email" name="user_email" id="user_email">
+			<input type="email" name="email" id="user_email" [(ngModel)]="email">
 			<p><label for="username">Email</label></p>
-			<button onclick="showSpinner()">Reset Password</button>
+			<button type="button" (click)="onShow()" [disabled]="(!email )">Reset Password</button>
+			<button type="button" (click)="onView()">view</button>
+
 		</div>
 		<div class="footer">
 			<h5>New here? <a href="new.jsp">Sign Up.</a></h5>
 			<h5>Already have an account? <a href="index.jsp">Sign In.</a></h5>
 		</div>
 	</div>
+	<!--table for view-->
+	<p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]" responsiveLayout="scroll"
+		styleClass="p-datatable-gridlines">
+		<ng-template pTemplate="header" let-columns>
+			<tr>
+				<th>S.No</th>
+				<th *ngFor="let col of columns">
+					{{col.header}}
+				</th>
+				<th>
+					Edit/Update
+
+
+				</th>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+			<tr>
+				<td class="td-border">
+					<span class="p-column-title">
+						S.No :
+					</span>
+					<span style="text-align: end;">
+						{{rowIndex+1}}
+					</span>
+				</td>
+
+
+				<td *ngFor="let col of columns" [style.text-align]="col.align" class="td-border">
+					<span class="p-column-title">
+						{{col.header}} :
+					</span>
+					<span style="text-align: end;"> {{rowData[col.field]}}
+					</span>
+
+				</td>
+				<td class="td-border">
+					<span class="p-column-title">
+						Edit/Update :
+					</span>
+					<span><button icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
+							Edit
+						</button></span>
+				</td>
+			</tr>
+		</ng-template>
+	</p-table>
 </body>

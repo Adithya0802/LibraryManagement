@@ -11,7 +11,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  -moz-font-feature-settings: "liga" on; }
+  -moz-font-feature-settings: "liga" ;
+}
 
 .row {
   background-color: rgba(20, 120, 200, 0.6);
