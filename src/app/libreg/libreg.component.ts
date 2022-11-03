@@ -16,12 +16,9 @@ Password: any;
   commodityGroups?: any;
   checked2:boolean=true;
   value: any;
- 
   cols: any;
   data: any[] =[];
-  
   date: any;
- 
   phoneno:any;
   country?:any;
   states?:any;
@@ -57,18 +54,11 @@ Password: any;
      
 ]
 
-
-
-
-
-
   }
 
-
-  
   onSave(){
 
-    this.router.navigate(['/librarien']);
+    this.router.navigate(['/bookinfo']);
   }
   checkPassword() {
     if (this.password !== undefined && this.password !== null && this.password.trim() !== '' &&
