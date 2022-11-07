@@ -9,7 +9,7 @@ import { RestAPIService } from '../restapi.service';
 })
 export class ForgetComponent implements OnInit {
   email: any;
-  oldpassword:any;
+ confirmpassword:any;
   newpassword:any;
   cols: any;
 
@@ -20,7 +20,7 @@ export class ForgetComponent implements OnInit {
   ngOnInit(): void {
     this.cols = [
    { field: 'email', header: 'Email', align: 'left !important' },
-   { field: 'oldpassword', header: 'Oldpassword', align: 'left !important'},
+   { field: 'confirmpassword', header: 'confirmpassword', align: 'left !important'},
    { field: 'newpassword', header: 'newpassword', align: 'left !important'}
     ]
   }
@@ -29,7 +29,7 @@ export class ForgetComponent implements OnInit {
     const params = {
       'sno': this.id,
       'email': this.email,
-      'oldpassword':this.oldpassword,
+      'confirmpassword':this.confirmpassword,
       'newpassword':this.newpassword,
      };
     this.restapiservice.post(PathConstants.forget_Post, params).subscribe(res => { })

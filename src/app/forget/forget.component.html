@@ -14,10 +14,10 @@
 		<div class="form-group">
 			<input type="email" name="email" id="user_email" [(ngModel)]="email">
 			<p><label for="username">Email</label></p>
-			<input type="oldpassword" name="oldpassword" id="oldpassword" [(ngModel)]="oldpassword">
-			<p><label for="username">oldpassword</label></p>
-			<input type="newpassword" name="newpassword" id="newpassword" [(ngModel)]="newpassword">
+			<input type="oldpassword" name="newpassword" id="newpassword" [(ngModel)]="newpassword">
 			<p><label for="username">newpassword</label></p>
+			<input type="newpassword" name="confirmpassword" id="confirmpassword" [(ngModel)]="confirmpassword">
+			<p><label for="username">confirmpassword</label></p>
 			<button type="button" (click)="onShow()" [disabled]="(!email )">Reset Password</button>
 			
 
