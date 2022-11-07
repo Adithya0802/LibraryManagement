@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   password: any;
   username: any;
   cities: any;
-  number:any;
+  number: any;
 
 
   CheckApplicaitonStatus() {
