@@ -11,8 +11,8 @@
     <title>Document</title>
 </head>
 
-<section class="h-200 bg-dark">
-  <form #f="ngForm">
+<section >
+ 
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col">
@@ -32,7 +32,7 @@
                       <div class="form-outline">
                         <label class="form-label" for="form3Example1m">First name</label><span
                         class="form-mandatory-field">*</span>
-                        <input type="text" id="form3Example1m" class="form-control form-control-lg" />
+                        <input type="text" id="form3Example1m" class="form-control form-control-lg" [(ngModel)]="firstname" />
                         
                       </div>
                     </div>
@@ -40,7 +40,7 @@
                       <div class="form-outline">
                         <label class="form-label" for="form3Example1n">Last name</label><span
                         class="form-mandatory-field">*</span>
-                        <input type="text" id="form3Example1n" class="form-control form-control-lg" />
+                        <input type="text" id="form3Example1n" class="form-control form-control-lg" [(ngModel)]="lastname"/>
                         
                       </div>
                     </div>
@@ -51,7 +51,7 @@
                       <div class="form-outline">
                         <label class="form-label" for="form3Example1m1">Reg no</label><span
                         class="form-mandatory-field">*</span>
-                        <input type="text" id="form3Example1m1" class="form-control form-control-lg" />
+                        <input type="text" id="form3Example1m1" class="form-control form-control-lg" [(ngModel)]="regno"/>
                        
                       </div>
                     </div>
@@ -59,7 +59,7 @@
                       <div class="form-outline">
                         <label class="form-label" for="form3Example1n1">Father's name</label><span
                         class="form-mandatory-field">*</span>
-                        <input type="text" id="form3Example1n1" class="form-control form-control-lg" />
+                        <input type="text" id="form3Example1n1" class="form-control form-control-lg" [(ngModel)]="fathername"/>
                         
                       </div>
                     </div>
@@ -70,21 +70,21 @@
   
                     <h6 class="mb-0 me-4">Gender: </h6>
   
-                    <div class="form-check form-check-inline mb-0 me-4">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                        value="option1" />
+                    <div class="form-check form-check-inline mb-0 me-4" >
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" 
+                        value="option1" [(ngModel)]="gender"/>
                       <label class="form-check-label" for="femaleGender">Female</label>
                     </div>
   
                     <div class="form-check form-check-inline mb-0 me-4">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                        value="option2" />
+                        value="option2" [(ngModel)]="gender" />
                       <label class="form-check-label" for="maleGender">Male</label>
                     </div>
   
                     <div class="form-check form-check-inline mb-0">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                        value="option3" />
+                        value="option3" [(ngModel)]="gender"/>
                       <label class="form-check-label" for="otherGender">Other</label>
                     </div>
   
@@ -94,13 +94,13 @@
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example9">DOB</label><span
                     class="form-mandatory-field">*</span>
-                    <input type="date" id="form3Example9" class="form-control form-control-lg" />
+                    <input type="date" id="form3Example9" class="form-control form-control-lg" [(ngModel)]="dataofbirth"/>
                     
                   </div>
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example8">Address</label><span
                     class="form-mandatory-field">*</span>
-                    <input type="text" id="form3Example8" class="form-control form-control-lg" />
+                    <input type="text" id="form3Example8" class="form-control form-control-lg" [(ngModel)]="address"/>
                     
                   </div>
   
@@ -111,7 +111,7 @@
              Pincode<span class="form-mandatory-field">*</span></label>
                </div>
                <input class="text" name="_pincode" class="form-control form-control-lg"  pInputText minlength="6"
-                 maxlength="6" [(ngModel)]="pincode1" appInputFormat="digitOnly" pattern="^6[0-4]\d{4}$" required />
+                 maxlength="6" [(ngModel)]="pincode" appInputFormat="digitOnly" pattern="^6[0-4]\d{4}$" required />
    <div>  <span *ngIf="(pincode != null && pincode !== undefined)" >
     <span *ngIf="(pincode.invalid)||(pincode>pincode_max)"
     style="color: crimson;font-size: 12px;">Invalid pincode</span>
@@ -123,11 +123,20 @@
                    
                   </div>
   
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example97">collegename</label><span
+                        class="form-mandatory-field" >*</span>
+                      <select class="select form-control-lg" [(ngModel)]="collegename">
+                        <option value="1" >Choose option</option>
+                        <option value="2">KSRCT</option>
+                        <option value="3">KSRCE</option>
+                      </select>
+</div>
                   <div class="row">
                     <div class="col-md-6 mb-4">
                         <label for="_commodityname"  >course</label><span
-                        class="form-mandatory-field">*</span>
-                      <select class="select form-control-lg">
+                        class="form-mandatory-field" >*</span>
+                      <select class="select form-control-lg" [(ngModel)]="course">
                         <option value="1" >Choose option</option>
                         <option value="2">BE</option>
                         <option value="3">ME</option>
@@ -135,8 +144,8 @@
 </div>
                  <div class="col-md-6 mb-4">
                       <label class="_commodityname">Department</label><span 
-                      class="form-mandatory-field">*</span>
-                      <select class="select form-control-lg">
+                      class="form-mandatory-field" >*</span>
+                      <select class="select form-control-lg" [(ngModel)]="department">
                         <option value="1">Choose option</option>
                         <option value="2">CSE</option>
                         <option value="3">ECE</option>
@@ -151,7 +160,7 @@
   
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example97">Email ID</label>
-                    <input type="text" id="form3Example97" class="form-control form-control-lg" pInputText
+                    <input type="text" id="form3Example97" class="form-control form-control-lg" [(ngModel)]="emailid" pInputText
                     pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
                     required />
                     
@@ -162,8 +171,8 @@
                         <label class="form-label" for="form3Example1m">Password</label><span
                         class="form-mandatory-field">*</span>
                        
-                        <div> <input type="password" class="form-control form-control-lg" name="_newpwd" pInputText [(ngModel)]="Password"
-                          minlength="8" maxlength="12" (input)="checkPassword()" required>
+                        <div> <input type="password" name="_newpwd" class="form-control form-control-lg"   autocomplete="off" pInputText [(ngModel)]="password"
+                          minlength="8" maxlength="12" (input)="check(password)" required>
                    </div>
                       </div>
                     </div>
@@ -172,18 +181,31 @@
                         <label class="form-label" for="form3Example1n">confirm password</label><span
                         class="form-mandatory-field">*</span>
                        
-                        <div> <input type="password" class="form-control form-control-lg" name="_confirmpwd" pInputText [(ngModel)]="confirmPassword"
+                        <div> <input type="password" name="_confirmpwd" class="form-control form-control-lg"  [(ngModel)]="confirmpassword" autocomplete="off" pInputText
                           minlength="8" maxlength="12" (input)="checkPassword()" required></div>
-                          <div *ngIf="showErrMsg" style="color: rgb(250, 89, 15); font-size: 12px;">Password did
-                              not match</div>
-                              <div *ngIf="showMatchMsg" style="color: rgb(28, 182, 92); font-size: 12px; text-align: left;">Password
-                                  matched!</div>
+                          <div *ngIf="showErrMsg" style="color: rgb(250, 15, 62); font-size: 12px;">Password did
+                            not match</div>
+                            <div *ngIf="showMatchMsg" style="color: rgb(28, 182, 92); font-size: 12px; text-align: left;">Password
+                                matched!</div>
+                
+                    <div *ngIf="SpecialCharErrMsg"
+                    style="color: rgb(250, 15, 62); font-size: 12px; text-align: left;">Atleast one Special
+                    Character must!</div>
+                  <div *ngIf="NumericErrMsg"
+                    style="color: rgb(250, 15, 62); font-size: 12px; text-align: left;">Atleast one Numeric(0-9)
+                    must!</div>
+                  <div *ngIf="UpperCaseErrMsg"
+                    style="color: rgb(250, 15, 62); font-size: 12px; text-align: left">Atleast one
+                    Uppercase(A-Z) must!</div>
+                  <div *ngIf="LengthErrMsg" style="color: rgb(250, 15, 62); font-size: 12px; text-align: left">
+                    Minimum 8 Characters!</div>
+                
                       </div>
                     </div>
                   </div>
   
                   <div class="d-flex justify-content-end pt-3">
-                    <button type="button" class="btn btn-light btn-lg">view</button>
+                    <button type="button" class="btn btn-light btn-lg" (click)="onview()">view</button>
                     <button type="button" class="btn btn-warning btn-lg ms-2"(click)="onSave()">Submit form</button>
                   </div>
   
@@ -194,5 +216,51 @@
         </div>
       </div>
     </div>
-  </form>
+    <p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]"
+    responsiveLayout="scroll" styleClass="p-datatable-gridlines">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th>S.No</th>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+            <th>
+                Edit/Update
+  
+  
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+        <tr>
+            <td class="td-border">
+                <span class="p-column-title">
+                    S.No :
+                </span>
+                <span style="text-align: end;">
+                    {{rowIndex+1}}
+                </span>
+            </td>
+  
+  
+            <td *ngFor="let col of columns" [style.text-align]="col.align" class="td-border">
+                <span class="p-column-title">
+                    {{col.header}} :
+                </span>
+                <span style="text-align: end;"> {{rowData[col.field]}}
+                </span>
+  
+            </td>
+            <td class="td-border">
+                <span class="p-column-title">
+                    Edit/Update :
+                </span>
+                <span><button icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
+                        Edit
+                    </button></span>
+            </td>
+        </tr>
+    </ng-template>
+  </p-table>
+
   </section>

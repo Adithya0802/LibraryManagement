@@ -8,4 +8,11 @@ export class PathConstants {
     public static readonly LibReg_Post='LibReg/Post';
     public static readonly Libreg_Get ='LibReg';
 
+    public static readonly bookissues_Post ='BookIssues/Post';
+    public static readonly bookissues_Get='BookIssues';
+   
+    public static readonly bookdetails_Post ='BookDetails/Post';
+    public static readonly bookdetails_Get ='BookDetails';
+    public static readonly studentregs_Post ='Studentreg/Post';
+    public static readonly studentregs_Get ='Studentreg';
 }

@@ -40,8 +40,8 @@
             </div>
             <div class="col-md-6 pt-md-0 pt-3">
                 <label for="phone">New password</label>
-                <div> <input type="password" name="_newpwd" autocomplete="off" pInputText [(ngModel)]="newpassword"
-                        minlength="" maxlength="" (input)="check(password)" required>
+                <div> <input type="password" name="_newpwd" class="bg-light form-control" autocomplete="off" pInputText
+                        [(ngModel)]="newpassword" minlength="" maxlength="" (input)="check(password)" required>
 
 
                 </div>
@@ -49,8 +49,8 @@
         </div>
         <div>
             <label for="phone">confirm password</label>
-            <div> <input type="password" name="_confirmpwd" autocomplete="off" pInputText [(ngModel)]="confirmpassword"
-                    minlength="8" maxlength="12" (input)="checkPassword()" required></div>
+            <div> <input type="password" name="_confirmpwd" class="bg-light form-control" autocomplete="off" pInputText
+                    [(ngModel)]="confirmpassword" minlength="8" maxlength="12" (input)="checkPassword()" required></div>
             <div *ngIf="showErrMsg" style="color: rgb(250, 15, 62); font-size: 12px;">Password did
                 not match</div>
             <div *ngIf="showMatchMsg" style="color: rgb(28, 182, 92); font-size: 12px; text-align: left;">Password

@@ -34,14 +34,14 @@
                     <div class="form-outline">
                       <label class="form-label" for="form3Example1m">Book Id</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="text" id="form3Example1m" class="form-control " />
+                      <input type="text" id="form3Example1m" class="form-control " [(ngModel)]="bookid" />
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <label class="form-label" for="form3Example1n">Book name</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="text" id="form3Example1n" class="form-control" />
+                      <input type="text" id="form3Example1n" class="form-control" [(ngModel)]="bookname" />
 
                     </div>
                   </div>
@@ -53,13 +53,14 @@
                     <div class="form-outline">
                       <label class="form-label" for="form3Example1m">Student Regno:</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="text" id="form3Example1m" class="form-control " />
+                      <input type="text" id="form3Example1m" class="form-control " [(ngModel)]="studentregno" />
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <label for="_commodityname">Issue Info</label><span class="form-mandatory-field">*</span>
-                      <select class="select form-control-lg">
+                      <label for="_commodityname" >Issue Info</label><span
+                        class="form-mandatory-field">*</span>
+                      <select class="select form-control-lg" [(ngModel)]="issueinfo">
                         <option value="1">Choose option</option>
                         <option value="2">Return Book</option>
                         <option value="3">Extern Date</option>
@@ -72,14 +73,16 @@
                   <div class="col-md-6 mb-4">
                     <label for="example">Borrow date:</label><span class="form-mandatory-field">*</span>
                     <div id="date" class=" datepicker">
-                      <input placeholder="Select date" type="date" id="example" class="form-control">
+                      <input placeholder="Select date" type="date" id="example" class="form-control"
+                        [(ngModel)]="borrowdate">
                       <i class="calendar" tabindex=0></i>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <label for="example">Issue date:</label>
                     <div id="date" class=" datepicker">
-                      <input placeholder="Select date" type="date" id="example" class="form-control">
+                      <input placeholder="Select date" type="date" id="example" class="form-control"
+                        [(ngModel)]="issuedate">
                       <i class="calendar" tabindex=0></i>
                     </div>
                   </div>
@@ -88,7 +91,8 @@
                   <div class="col-md-6 mb-4">
                     <label for="example">Extern date:</label>
                     <div id="date" class=" datepicker">
-                      <input placeholder="Select date" type="date" id="example" class="form-control">
+                      <input placeholder="Select date" type="date" id="example" class="form-control"
+                        [(ngModel)]="externdate">
                       <i class="calendar" tabindex=0></i>
                     </div>
                   </div>
@@ -97,6 +101,8 @@
                 <div class="py-3 pb-4 border-bottom">
                   <button class="btn btn-primary mr-3" style="margin-right: 10px;">Submit</button>
                   <button class="btn btn-primary mr-3">view</button>
+                  <button type="button" class="btn btn-primary btn-lg" (click)="onSave()">Submit</button>
+                  <button type="button" class="btn btn-primary btn-lg" (click)="onview()">View</button>
                 </div>
               </div>
             </div>
@@ -105,6 +111,53 @@
       </div>
     </div>
   </div>
+  <p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]"
+  responsiveLayout="scroll" styleClass="p-datatable-gridlines">
+  <ng-template pTemplate="header" let-columns>
+      <tr>
+          <th>S.No</th>
+          <th *ngFor="let col of columns">
+              {{col.header}}
+          </th>
+          <th>
+              Edit/Update
+
+
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+      <tr>
+          <td class="td-border">
+              <span class="p-column-title">
+                  S.No :
+              </span>
+              <span style="text-align: end;">
+                  {{rowIndex+1}}
+              </span>
+          </td>
+
+
+          <td *ngFor="let col of columns" [style.text-align]="col.align" class="td-border">
+              <span class="p-column-title">
+                  {{col.header}} :
+              </span>
+              <span style="text-align: end;"> {{rowData[col.field]}}
+              </span>
+
+          </td>
+          <td class="td-border">
+              <span class="p-column-title">
+                  Edit/Update :
+              </span>
+              <span><button icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
+                      Edit
+                  </button></span>
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
 </section>
+
 
 </html>
