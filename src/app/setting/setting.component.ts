@@ -22,30 +22,30 @@ export class SettingComponent implements OnInit {
   oldpassword: any;
   newpassword: any;
   confirmpassword: any;
-  cols :any;
-  data: any[]=[];
+  cols: any;
+  data: any[] = [];
   password: any;
   password1: any;
   newPassword: any;
-  SpecialCharErrMsg: boolean=false;
-  pswdStrongMsg: boolean=false;
-  NumericErrMsg: boolean=false;
-  UpperCaseErrMsg: boolean=false;
-  LengthErrMsg: boolean=false;
+  SpecialCharErrMsg: boolean = false;
+  pswdStrongMsg: boolean = false;
+  NumericErrMsg: boolean = false;
+  UpperCaseErrMsg: boolean = false;
+  LengthErrMsg: boolean = false;
   blockspace: RegExp = /[^\s]/;
   id: any;
 
   constructor(private restApiService: RestAPIService) { }
   ngOnInit(): void {
     this.cols = [
-      { field: 'firstName', header: 'FirstName', align: 'left !important' },
-      { field: 'lastName', header: 'LastName', align: 'left !important' },
+      { field: 'firstname', header: 'FirstName', align: 'left !important' },
+      { field: 'lastname', header: 'LastName', align: 'left !important' },
       { field: 'email', header: 'email', align: 'right !important' },
       { field: 'phoneno', header: 'phoneno', align: 'left !important' },
       { field: 'oldpassword', header: 'oldpassword', align: 'left !important' },
       { field: 'newpassword', header: 'newpassword', align: 'left !important' },
       { field: 'confirmpassword', header: 'confrimpassword', align: 'left !important' },
-]
+    ]
 
   }
   onSave() {
@@ -55,87 +55,89 @@ export class SettingComponent implements OnInit {
       'email': this.email,
       'phoneno': this.phoneno,
       'oldpassword': this.oldpassword,
-      'newpassword': this.Password,
-      'confirmpassword': this.confirmPassword,
-    }
+      'newpassword': this.newpassword,
+      'confirmpassword': this.confirmpassword,
+    };
     this.restApiService.post(PathConstants.setting_Post, params).subscribe(res => { })
   }
-  onView(){
-    this.restApiService.get(PathConstants.set_Get).subscribe(res =>{this.data = res
+  onView() {
+    this.restApiService.get(PathConstants.set_Get).subscribe(res => {
+      this.data = res
     })
   }
 
 
   checkPassword() {
     if (this.password !== undefined && this.password !== null && this.password.trim() !== '' &&
-    this.password1 !== undefined && this.password1 !== null && this.password.trim() !== '') {
-          if(this.newPassword.trim() !== this.confirmPassword.trim()) {
-            this.showErrMsg = true;
-            this.showMatchMsg = false;
-          } else {
-            this.showErrMsg = false;
-            this.showMatchMsg = true;
-          }
+      this.password1 !== undefined && this.password1 !== null && this.password.trim() !== '') {
+      if (this.newPassword.trim() !== this.confirmPassword.trim()) {
+        this.showErrMsg = true;
+        this.showMatchMsg = false;
+      } else {
+        this.showErrMsg = false;
+        this.showMatchMsg = true;
+      }
     } else {
       this.showErrMsg = false;
     }
   }
 
-  check(password:any) {
+  check(password: any) {
 
-     if (password.match(/[@$!%*?&]/g)) {
-     this.SpecialCharErrMsg = false;
-     } else {
-     this.SpecialCharErrMsg = true;
-     this.pswdStrongMsg = false;
-    }    
-   if (password.match(/[0-9]/g)) {   
-     this.NumericErrMsg = false;
-    } else {    
-    this.NumericErrMsg = true;    
-    this.pswdStrongMsg = false;    
-    }    
-    if (password.match(/[A-Z]/g)) {    
-    this.UpperCaseErrMsg = false;    
-    } else {    
-    this.UpperCaseErrMsg = true;    
-    this.pswdStrongMsg = false;    
-    }    
-    if (password.length >= 8) {    
-    this.LengthErrMsg = false;    
-    } else {    
-    this.LengthErrMsg = true;    
-    this.pswdStrongMsg = false;
+    if (password.match(/[@$!%*?&]/g)) {
+      this.SpecialCharErrMsg = false;
+    } else {
+      this.SpecialCharErrMsg = true;
+      this.pswdStrongMsg = false;
+    }
+    if (password.match(/[0-9]/g)) {
+      this.NumericErrMsg = false;
+    } else {
+      this.NumericErrMsg = true;
+      this.pswdStrongMsg = false;
+    }
+    if (password.match(/[A-Z]/g)) {
+      this.UpperCaseErrMsg = false;
+    } else {
+      this.UpperCaseErrMsg = true;
+      this.pswdStrongMsg = false;
+    }
+    if (password.length >= 8) {
+      this.LengthErrMsg = false;
+    } else {
+      this.LengthErrMsg = true;
+      this.pswdStrongMsg = false;
     }
     if (password.match(/[@$!%*?&]/g) && password.match(/[0-9]/g) && password.match(/[A-Z]/g) && password.length > 8)
-    this.pswdStrongMsg = true;
-   }
+      this.pswdStrongMsg = true;
+  }
 
 
-   onEdit(selectedRow: {
-     confirmpassword: any;
-     newpassword: any;
-     oldpassword: any;
-     phoneno: any;
-     email: any;
-     lastname: any;
+  onEdit(selectedRow: {
+    confirmpassword: any;
+    newpassword: any;
+    oldpassword: any;
+    phoneno: any;
+    email: any;
+    lastname: any;
 
     sno: any; firstname: any;
 
-} | null | undefined) {
+  } | null | undefined) {
 
-    if(selectedRow !== null && selectedRow !==undefined){
-this.id=selectedRow.sno;
-this.firstname= selectedRow.firstname;
-this.lastname= selectedRow.lastname;
-this.email= selectedRow.email;
-this.phoneno= selectedRow.phoneno;
-this.oldpassword= selectedRow.oldpassword;
-this.newpassword=selectedRow.newpassword;
-this.confirmpassword=selectedRow.confirmpassword;
+    if (selectedRow !== null && selectedRow !== undefined) {
+
+      this.id = selectedRow.sno;
+      this.firstname = selectedRow.firstname;
+      this.lastname = selectedRow.lastname;
+      this.email = selectedRow.email;
+      this.phoneno = selectedRow.phoneno;
+      this.oldpassword = selectedRow.oldpassword;
+      this.newpassword = selectedRow.newpassword;
+      this.confirmpassword = selectedRow.confirmpassword;
 
     }
- }
+  }
 }
 
 

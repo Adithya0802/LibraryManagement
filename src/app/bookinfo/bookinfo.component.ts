@@ -42,38 +42,47 @@ export class BookinfoComponent implements OnInit {
   }
   onSubmit() {
     const params = {
-
+      'sno': this.id,
+      'subject': this.subject,
       'title': this.title,
       'author': this.author,
-      'id': this.id,
-      'list': this.list,
-      'subject': this.subject,
-      'book': this.book,
-      'producer': this.producer,
-      'publisher': this.publisher,
-      'booktitle': this.booktitle,
-      'page': this.page,
+      'name': this.name,
+      'date': this.date,
       'copies': this.copies,
       'shelf': this.shelf,
-      'publishedName': this.name,
-      'PublisedDate': this.date,
-
-    }
-    this.restapiservice.post(PathConstants.bookinfo_Post, params).subscribe(res => {
-
-    })
-
-
-
+    };
+    this.restapiservice.post(PathConstants.bookinfo_Post, params).subscribe(res => { })
   }
   onView() {
-    this.restapiservice.get(PathConstants.book_Get).subscribe(res => {
-
-
-
-    })
+    this.restapiservice.get(PathConstants.bookinfo_Get).subscribe(res => {this.data = res })
 
   }
+  onEdit(selectedRow: {
+    date: any;
+    copies: any;
+    name: any;
+    author: any;
+    shelf: any;
+    title: any;
+    subject: any;
+    sno: any;
+  } | null | undefined) {
 
+    if (selectedRow !== null && selectedRow !== undefined) {
+
+      this.id = selectedRow.sno;
+      this.subject = selectedRow.subject;
+      this.title = selectedRow.title;
+      this.author = selectedRow.author;
+      this.name = selectedRow.name;
+      this.date = selectedRow.date;
+      this.copies = selectedRow.copies;
+      this.shelf = selectedRow.shelf;
+      
+    }
+  }
 }
+
+
+
 

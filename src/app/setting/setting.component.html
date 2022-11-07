@@ -70,7 +70,7 @@
     </div>
 
     <div class="py-3 pb-4 border-bottom">
-        <button class="btn btn-primary mr-3" (click)="onSave()">Save Changes</button>
+        <button class="btn btn-primary " style="margin-right: 10px;" (click)="onSave()">Save Changes</button>
         <button class="btn border button" (click)="onView()">view</button>
     </div>
 
@@ -78,52 +78,52 @@
     <div class="d-sm-flex align-items-center pt-3" id="deactivate">
 
 
-        <p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]" responsiveLayout="scroll"
-		styleClass="p-datatable-gridlines">
-		<ng-template pTemplate="header" let-columns>
-			<tr>
-				<th>S.No</th>
-				<th *ngFor="let col of columns">
-					{{col.header}}
-				</th>
-				<th>
-					Edit/Update
+        <p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]"
+            responsiveLayout="scroll" styleClass="p-datatable-gridlines">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th>S.No</th>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                    <th>
+                        Edit/Update
 
 
-				</th>
-			</tr>
-		</ng-template>
-		<ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
-			<tr>
-				<td class="td-border">
-					<span class="p-column-title">
-						S.No :
-					</span>
-					<span style="text-align: end;">
-						{{rowIndex+1}}
-					</span>
-				</td>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+                <tr>
+                    <td class="td-border">
+                        <span class="p-column-title">
+                            S.No :
+                        </span>
+                        <span style="text-align: end;">
+                            {{rowIndex+1}}
+                        </span>
+                    </td>
 
 
-				<td *ngFor="let col of columns" [style.text-align]="col.align" class="td-border">
-					<span class="p-column-title">
-						{{col.header}} :
-					</span>
-					<span style="text-align: end;"> {{rowData[col.field]}}
-					</span>
+                    <td *ngFor="let col of columns" [style.text-align]="col.align" class="td-border">
+                        <span class="p-column-title">
+                            {{col.header}} :
+                        </span>
+                        <span style="text-align: end;"> {{rowData[col.field]}}
+                        </span>
 
-				</td>
-				<td class="td-border">
-					<span class="p-column-title">
-						Edit/Update :
-					</span>
-					<span><button icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
-							Edit
-						</button></span>
-				</td>
-			</tr>
-		</ng-template>
-	</p-table>
+                    </td>
+                    <td class="td-border">
+                        <span class="p-column-title">
+                            Edit/Update :
+                        </span>
+                        <span><button icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
+                                Edit
+                            </button></span>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
 
     </div>
 </div>
