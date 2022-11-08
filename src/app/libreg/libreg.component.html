@@ -49,18 +49,22 @@
 
                   <div class="form-outline flex-fill mb-0">
                     <label for="phone">New password</label><span class="form-mandatory-field">*</span>
-                    <div> <input type="password" name="_newpwd" autocomplete="off" pInputText [(ngModel)]="password"
+                    <div> <input type="password" name="_newpwd" class="form-control" autocomplete="off" pInputText [(ngModel)]="password"
                         minlength="8" maxlength="12" (input)="check(password)" required>
 
 
                     </div>
+<<<<<<< HEAD
 
+=======
+             
+>>>>>>> fe2a2ab96cfa1d39cd97ce5a412305c3b36566a6
                   </div>
                 </div>
                 <label for="phone">ComfirmPassword</label><span class="form-mandatory-field">*</span>
                 <div class="d-flex flex-row align-items-center mb-4">
                   <div class="form-outline flex-fill mb-0">
-                    <div> <input type="password" name="_confirmpwd" autocomplete="off" pInputText
+                    <div> <input type="password" name="_confirmpwd" class="form-control" autocomplete="off" pInputText
                         [(ngModel)]="repeatpassword" minlength="8" maxlength="12" (input)="checkPassword()" required>
                     </div>
                     <div *ngIf="showErrMsg" style="color: rgb(250, 15, 62); font-size: 12px;">Password did

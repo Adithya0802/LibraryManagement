@@ -94,9 +94,17 @@
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example9">DOB</label><span
                     class="form-mandatory-field">*</span>
-                    <input type="date" id="form3Example9" class="form-control form-control-lg" [(ngModel)]="dataofbirth"/>
+                    <p-calendar [(ngModel)]="dataofbirth" (onSelect)="CalculateAge()"></p-calendar>
                     
                   </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example9">Age</label><span
+                    class="form-mandatory-field">*</span>
+                    <input type="number" [(ngModel)]="age">
+                  </div>
+                  
+                    
+                  
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example8">Address</label><span
                     class="form-mandatory-field">*</span>
@@ -120,7 +128,6 @@
   
       </div>
 
-                   
                   </div>
   
                   <div class="form-outline mb-4">
@@ -206,7 +213,7 @@
   
                   <div class="d-flex justify-content-end pt-3">
                     <button type="button" class="btn btn-light btn-lg" (click)="onview()">view</button>
-                    <button type="button" class="btn btn-warning btn-lg ms-2"(click)="onSave()">Submit form</button>
+                    <button type="button" class="btn btn-warning btn-lg ms-2"(click)="onSave()" [disabled]="(!firstname|| !lastname|| !regno|| !fathername|| !gender|| !dataofbirth|| !address|| !pincode|| !collegename|| !course|| !department|| !emailid|| !password|| !confirmpassword)">Submit form</button>
                   </div>
   
                 </div>

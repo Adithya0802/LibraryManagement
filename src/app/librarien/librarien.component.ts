@@ -10,13 +10,12 @@ export class LibrarienComponent implements OnInit {
   username: any;
   password: any;
 
-
   constructor(private router :Router) { }
 
   ngOnInit(): void {
   }
 onSave(){
- // this.router.navigate(['/status']);
+ this.router.navigate(['/bookinfo']);
 
  const params={
 'username':this.username,
