@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { PathConstants } from '../CommonModules/pathcontants';
 import { RestAPIService } from '../restapi.service';
 
@@ -27,10 +27,11 @@ export class StudentregistrationComponent implements OnInit {
   data: any[] =[];
   firstname:any;
   lastname: any;
-  dataofbirth: any;
+  dataofbirth: any = Date;
   phoneno:any;
   pincode1:any;
   address: any;
+  age:any;
   gender:any;
   showErrMsg: boolean | undefined;
   showMatchMsg!: boolean;
@@ -62,8 +63,8 @@ export class StudentregistrationComponent implements OnInit {
       { field: 'password', header: 'password', align: 'left !important' },
       { field: 'confirmpassword', header: 'confirmpassword', align: 'left !important' },
 ]
-
   }
+  
   onSave(){
     const params = {
     'sno':this.id,
@@ -72,6 +73,7 @@ export class StudentregistrationComponent implements OnInit {
     'regno':this.regno,
     'fathername':this.fathername,
     'dataofbirth':this.dataofbirth,
+    'age':this.age,
     'gender':this.gender,
     'address':this.address,
     'pincode':this.pincode,
@@ -107,6 +109,7 @@ this.restApiService.post(PathConstants.studentregs_Post, params).subscribe(res =
    address:any;
    pincode:any;
   dataofbirth:any;
+  age:any;
   } | null | undefined) {
    if(selectedRow !== null && selectedRow !==undefined){
   this.id=selectedRow.sno;
@@ -117,6 +120,7 @@ this.restApiService.post(PathConstants.studentregs_Post, params).subscribe(res =
   this.gender=selectedRow.gender;
   this.address=selectedRow.address;
   this.dataofbirth=selectedRow.dataofbirth;
+  this.age=selectedRow.age;
   this.pincode=selectedRow.pincode;
   this.collegename=selectedRow.collegename;
   this.course=selectedRow.course;
@@ -171,7 +175,18 @@ check(password:any) {
   this.pswdStrongMsg = true;
  }
 
+public CalculateAge(): void
+{
 
-
-
+if(this.dataofbirth)
+ {
+        var timeDiff = Math.abs(Date.now() - this.dataofbirth.getTime());
+        console.log('1',timeDiff)
+        var a = Math.floor((timeDiff / (1000 * 3600 * 24))/365);
+        this.age=a;
+ console.log("hjdh",this.dataofbirth.getTime());
+        console.log("age",a);
+  
+  }
+}
 }

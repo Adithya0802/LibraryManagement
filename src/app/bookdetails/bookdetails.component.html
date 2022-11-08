@@ -1,4 +1,4 @@
-!DOCTYPE html>
+
 <html lang="en">
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -21,7 +21,7 @@
               </div>  
               <div class="col-xl-6">
                 <div class="card-body p-md-5 text-black">
-                  <h3 class="mb-5 text-uppercase">BOOK REGISTER</h3>
+                  <h3 class="mb-5 text-black">BOOK REGISTER</h3>
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
@@ -84,13 +84,8 @@
                           </div>
                      
                           <div class="py-3 pb-4 border-bottom">
-<<<<<<< HEAD
-                            <button class="btn btn-primary mr-3" style="margin-right: 10px;" >Submit</button> 
+                            <button class="btn btn-primary mr-3" style="margin-right: 10px;"  [disabled]="(!studentname|| !studentregno|| !bookname|| !bookcategory|| !authorname|| !publishdate)" >Submit</button> 
                             <button class="btn btn-primary mr-3">view</button>
-=======
-                            <button class="btn btn-primary mr-3" (click)="onSave()">Submit</button> 
-                            <button class="btn btn-primary mr-3" (click)="onview()">view</button>
->>>>>>> 7857acb7273fe1818a4f5734dae916a354d8a521
                         </div>
        
                   </div></div></div></div>

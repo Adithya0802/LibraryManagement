@@ -24,11 +24,10 @@
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
                 alt="Sample photo" class="img-fluid"
                 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
-            </div>
+            </div>  
             <div class="col-xl-6">
               <div class="card-body p-md-5 text-black">
-                <h3 class="mb-5 text-uppercase">Issue of Books</h3>
-
+                <h3 class="mb-5 text-uppercase ">ISSUE OF BOOK</h3>
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
@@ -99,9 +98,8 @@
                 </div>
 
                 <div class="py-3 pb-4 border-bottom">
-                  <button class="btn btn-primary mr-3" style="margin-right: 10px;">Submit</button>
-                  <button class="btn btn-primary mr-3">view</button>
-                  <button type="button" class="btn btn-primary btn-lg" (click)="onSave()">Submit</button>
+                 
+                  <button type="button" class="btn btn-primary btn-lg" (click)="onSave()"  [disabled]="(!bookid|| !bookname|| !studentregno|| !issueinfo|| !borrowdate|| !issuedate|| !externdate)">Submit</button>
                   <button type="button" class="btn btn-primary btn-lg" (click)="onview()">View</button>
                 </div>
               </div>
