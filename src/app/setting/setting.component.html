@@ -1,3 +1,6 @@
+<br>
+<br>
+<br>
 <div class="wrapper bg-white mt-sm-5">
     <h4 class="pb-4 border-bottom">Account settings</h4>
     <div class="d-flex align-items-start py-3 border-bottom">
@@ -29,7 +32,7 @@
                 <label for="phone">Phone Number</label>
                 <input type="phoneno" class="bg-light form-control" name="_mobno" pInputText minlength="10"
                     maxlength="10" pattern="^[6789]\d{9,9}$" title="Phone number with 6-9 and remaing 9 digit with 0-9"
-                    appInputFormat="digitOnly" [(ngModel)]="mobileNumber" required />
+                    appInputFormat="digitOnly" [(ngModel)]="phoneno" required />
 
             </div>
         </div>
@@ -70,7 +73,9 @@
     </div>
 
     <div class="py-3 pb-4 border-bottom">
-        <button class="btn btn-primary " style="margin-right: 10px;" (click)="onSave()">Save Changes</button>
+        <button class="btn btn-primary " style="margin-right: 10px;" (click)="onSave()"
+        [disabled]="(!firstname||!lastname||!email||!phoneno||!oldpassword||!newpassword||!confirmpassword)"
+        >Save Changes</button>
         <button class="btn border button" (click)="onView()">view</button>
     </div>
 

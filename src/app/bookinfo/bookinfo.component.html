@@ -107,7 +107,7 @@
 
 
                   <div class="py-3 pb-4 border-bottom">
-                    <button class="btn btn-primary mr-3" (click)="onSubmit()"
+                    <button class="btn btn-primary mr-3" (click)="onSubmit()" [disabled]="(!subject|| !title||!author||!name||!date||!copies||!shelf)"
                       style="margin-right: 10px;">Submit</button>
                     <button class="btn btn-primary mr-3" (click)="onView()">view</button>
                   </div>
@@ -167,7 +167,7 @@
           <span class="p-column-title">
             Edit/Update :
           </span>
-          <span><button icon="pi pi-pencil" pButton type="button" pTooltip="Tap to edit">
+          <span><button icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
             </button></span>
         </td>
       </tr>

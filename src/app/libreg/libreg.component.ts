@@ -11,7 +11,7 @@ import { RestAPIService } from '../restapi.service';
 export class LibregComponent implements OnInit {
   emailid: any;
 
-Password: any;
+ Password: any;
  confirmPassword: any;
  email: any;
  showTable!: boolean;
@@ -42,7 +42,7 @@ Password: any;
  password1: any;
  newPassword: any;
  name:any;
-  repeatpassword: any;
+ repeatpassword: any;
 
 
 
@@ -51,8 +51,7 @@ Password: any;
   ngOnInit(): void {
     this.cols = [
       { field: 'name', header: 'Name', align: 'left !important' },
-  
-      { field: 'email', header: 'email', align: 'right !important' },
+      { field: 'email', header: 'email', align: 'left !important' },
       { field: 'password', header: 'Password', align: 'left !important' },
       { field: 'repeatpassword', header: 'repeatpassword', align: 'left !important' },
 
@@ -63,7 +62,7 @@ Password: any;
   onSave() {
     const params = {
       'name': this.name,
-      'emailid': this.emailid,
+      'email': this.email,
       'password': this.password,
       'repeatpassword': this.repeatpassword,
     };
@@ -123,7 +122,6 @@ Password: any;
   onEdit(selectedRow: {
     email: any;
     name: any;
-    emailid: any;
     password: any;
     repeatpassword: any;
 
