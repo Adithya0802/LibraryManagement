@@ -124,8 +124,6 @@ export class LibregComponent implements OnInit {
     name: any;
     password: any;
     repeatpassword: any;
-
-
     sno: any;
   } | null | undefined) {
 

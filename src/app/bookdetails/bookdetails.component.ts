@@ -55,7 +55,6 @@ export class BookdetailsComponent implements OnInit {
     bookcategory: any;
     authorname: any;
     publishdate: any;
-   
     sno: any;
    
    } | null | undefined) {
@@ -64,6 +63,7 @@ export class BookdetailsComponent implements OnInit {
    this.studentname= selectedRow.studentname;
    this.studentregno=selectedRow.studentregno;
    this.bookname=selectedRow.bookname;
+   this.bookcategory=selectedRow.bookcategory;
    this.authorname=selectedRow.authorname;
    this.publishdate=selectedRow.publishdate;
    
