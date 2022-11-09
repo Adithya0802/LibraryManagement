@@ -43,6 +43,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MenubarModule } from 'primeng/menubar';
+import { BookstatusComponent } from './bookstatus/bookstatus.component';
+import { LibpageComponent } from './libpage/libpage.component';
 
 
 
@@ -63,7 +65,9 @@ import { MenubarModule } from 'primeng/menubar';
     LibrarienComponent,
     StatusComponent,
     LibregComponent,
-    BookinfoComponent
+    BookinfoComponent,
+    BookstatusComponent,
+    LibpageComponent
   ],
   imports: [
     BrowserModule,
