@@ -15,6 +15,8 @@ import { ForgetComponent } from './forget/forget.component';
 import { LibrarienComponent } from './librarien/librarien.component';
 import { StatusComponent } from './status/status.component';
 import { BookinfoComponent } from './bookinfo/bookinfo.component';
+import { LibpageComponent } from './libpage/libpage.component';
+import { ViewbookComponent } from './viewbook/viewbook.component';
 
 
 const routes: Routes = [
@@ -33,6 +35,10 @@ const routes: Routes = [
   { path : 'librarien' , component : LibrarienComponent},
   { path : 'status' , component : StatusComponent},
   { path : 'bookinfo',component : BookinfoComponent},
+  { path : 'libpage',component : LibpageComponent},
+  { path : 'bookstatus',component: BookdetailsComponent},
+  { path : 'viewbook',component:ViewbookComponent },
+
 ];
 
 @NgModule({

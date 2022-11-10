@@ -45,7 +45,8 @@ import { MatListModule } from '@angular/material/list';
 import { MenubarModule } from 'primeng/menubar';
 import { BookstatusComponent } from './bookstatus/bookstatus.component';
 import { LibpageComponent } from './libpage/libpage.component';
-
+import { ViewbookComponent } from './viewbook/viewbook.component';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 
 
@@ -67,7 +68,8 @@ import { LibpageComponent } from './libpage/libpage.component';
     LibregComponent,
     BookinfoComponent,
     BookstatusComponent,
-    LibpageComponent
+    LibpageComponent,
+    ViewbookComponent
   ],
   imports: [
     BrowserModule,
@@ -98,6 +100,7 @@ import { LibpageComponent } from './libpage/libpage.component';
     MatListModule,
     MenubarModule,
     BrowserAnimationsModule,
+    MultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
