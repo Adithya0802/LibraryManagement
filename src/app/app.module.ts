@@ -45,6 +45,7 @@ import { MatListModule } from '@angular/material/list';
 import { MenubarModule } from 'primeng/menubar';
 import { BookstatusComponent } from './bookstatus/bookstatus.component';
 import { LibpageComponent } from './libpage/libpage.component';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 
 
@@ -98,6 +99,7 @@ import { LibpageComponent } from './libpage/libpage.component';
     MatListModule,
     MenubarModule,
     BrowserAnimationsModule,
+    SplitButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

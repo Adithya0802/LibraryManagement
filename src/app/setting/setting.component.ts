@@ -40,11 +40,11 @@ export class SettingComponent implements OnInit {
     this.cols = [
       { field: 'firstname', header: 'FirstName', align: 'left !important' },
       { field: 'lastname', header: 'LastName', align: 'left !important' },
-      { field: 'email', header: 'email', align: 'right !important' },
-      { field: 'phoneno', header: 'phoneno', align: 'left !important' },
-      { field: 'oldpassword', header: 'oldpassword', align: 'left !important' },
-      { field: 'newpassword', header: 'newpassword', align: 'left !important' },
-      { field: 'confirmpassword', header: 'confrimpassword', align: 'left !important' },
+      { field: 'email', header: 'Email', align: 'right !important' },
+      { field: 'phoneno', header: 'Phoneno', align: 'left !important' },
+      { field: 'oldpassword', header: 'Oldpassword', align: 'left !important' },
+      { field: 'newpassword', header: 'Newpassword', align: 'left !important' },
+      { field: 'confirmpassword', header: 'Confrimpassword', align: 'left !important' },
     ]
 
   }

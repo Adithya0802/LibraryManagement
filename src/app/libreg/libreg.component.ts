@@ -9,9 +9,7 @@ import { RestAPIService } from '../restapi.service';
   styleUrls: ['./libreg.component.css']
 })
 export class LibregComponent implements OnInit {
-  emailid: any;
-
- Password: any;
+ 
  confirmPassword: any;
  email: any;
  showTable!: boolean;
@@ -31,7 +29,7 @@ export class LibregComponent implements OnInit {
  productionHouse:any;
  showErrMsg !: boolean;
  showMatchMsg!: boolean;
- countryArr:any;
+ 
  stateArr:any;
  SpecialCharErrMsg: boolean=false;
  pswdStrongMsg: boolean=false;
@@ -53,7 +51,7 @@ export class LibregComponent implements OnInit {
       { field: 'name', header: 'Name', align: 'left !important' },
       { field: 'email', header: 'email', align: 'left !important' },
       { field: 'password', header: 'Password', align: 'left !important' },
-      { field: 'repeatpassword', header: 'repeatpassword', align: 'left !important' },
+      { field: 'repeatpassword', header: 'Repeatpassword', align: 'left !important' },
 
     ]
 

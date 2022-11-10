@@ -48,20 +48,20 @@ export class StudentregistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.cols = [
-      { field: 'firstname', header: 'firstname', align: 'left !important' },
-      { field: 'lastname', header: 'lastname', align: 'left !important' },
-      { field: 'regno', header: 'regno', align: 'right !important' },
-      { field: 'fathername', header: 'fathername', align: 'left !important' },
-      { field: 'gender', header: 'gender', align: 'left !important' },
-      { field: 'dataofbirth', header: 'dataofbirth', align: 'left !important' },
-      { field: 'address', header: 'address', align: 'left !important' },
-      { field: 'pincode', header: 'pincode', align: 'left !important' },
-      { field: 'collegename', header: 'collegename', align: 'left !important' },
-      { field: 'course', header: 'course', align: 'left !important' },
-      { field: 'department', header: 'department', align: 'left !important' },
-      { field: 'emailid', header: 'emailid', align: 'left !important' },
-      { field: 'password', header: 'password', align: 'left !important' },
-      { field: 'confirmpassword', header: 'confirmpassword', align: 'left !important' },
+      { field: 'firstname', header: 'Firstname', align: 'left !important' },
+      { field: 'lastname', header: 'Lastname', align: 'left !important' },
+      { field: 'regno', header: 'Regno', align: 'right !important' },
+      { field: 'fathername', header: 'Fathername', align: 'left !important' },
+      { field: 'gender', header: 'Gender', align: 'left !important' },
+      { field: 'dataofbirth', header: 'Dataofbirth', align: 'left !important' },
+      { field: 'address', header: 'Address', align: 'left !important' },
+      { field: 'pincode', header: 'Pincode', align: 'left !important' },
+      { field: 'collegename', header: 'Collegename', align: 'left !important' },
+      { field: 'course', header: 'Course', align: 'left !important' },
+      { field: 'department', header: 'Department', align: 'left !important' },
+      { field: 'emailid', header: 'Emailid', align: 'left !important' },
+      { field: 'password', header: 'Password', align: 'left !important' },
+      { field: 'confirmpassword', header: 'Confirmpassword', align: 'left !important' },
 ]
   }
   

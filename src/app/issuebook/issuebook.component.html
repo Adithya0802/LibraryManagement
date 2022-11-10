@@ -97,9 +97,9 @@
 
                 <div class="py-3 pb-4 border-bottom">
 
-                  <button type="button" class="btn btn-primary btn-lg" (click)="onSave()"
+                  <button type="button" class="btn btn-primary mr-3" style="margin-right: 10px;" (click)="onSave()"
                     [disabled]="(!bookid|| !bookname|| !studentregno|| !issueinfo|| !borrowdate|| !issuedate|| !externdate)">Submit</button>
-                  <button type="button" class="btn btn-primary btn-lg" (click)="onview()">View</button>
+                  <button type="button" class="btn btn-primary mr-3" style="margin-right: 10px;"(click)="onview()">View</button>
                 </div>
               </div>
             </div>
@@ -147,9 +147,7 @@
           <span class="p-column-title">
             Edit/Update :
           </span>
-          <span><button icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
-              Edit
-            </button></span>
+          <span><p-button label="Edit" icon="pi pi-check" iconPos="right" (onClick)="onEdit(rowData)"></p-button></span>
         </td>
       </tr>
     </ng-template>

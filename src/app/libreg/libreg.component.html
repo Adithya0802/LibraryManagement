@@ -40,8 +40,7 @@
                   <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">Your Email</label><span
                       class="form-mandatory-field">*</span>
-                    <input type="email" id="form3Example3c" class="form-control" [(ngModel)]="email"
-                      pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" required />
+                    <input type="email" id="form3Example3c" required name="email" class="form-control" [(ngModel)]="email" type="text">
                   </div>
                 </div>
 
@@ -49,7 +48,7 @@
 
                   <div class="form-outline flex-fill mb-0">
                     <label for="phone">New password</label><span class="form-mandatory-field">*</span>
-                    <div> <input type="password" name="_newpwd" class="form-control" autocomplete="off" pInputText [(ngModel)]="password"
+                    <div> <input type="password" name="_newpwd" class="form-control" autocomplete="off" [(ngModel)]="password"
                         minlength="8" maxlength="12" (input)="check(password)" required>
 
 
@@ -92,7 +91,7 @@
 
                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                   <button type="button" class="btn btn-primary btn-lg" style="margin-right: 10px;"
-                    (click)="onSave()">Register</button>
+                    (click)="onSave()"  [disabled]="(!name|| !email|| !password|| !repeatpassword)">Register</button>
                   <button type="button" class="btn btn-primary btn-lg" (click)="onView()">View</button>
                 </div>
 
@@ -154,9 +153,7 @@
           <span class="p-column-title">
             Edit/Update :
           </span>
-          <span><button icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
-              Edit
-            </button></span>
+          <span><p-button label="Edit" icon="pi pi-check" iconPos="right" (onClick)="onEdit(rowData)"></p-button></span>
         </td>
       </tr>
     </ng-template>

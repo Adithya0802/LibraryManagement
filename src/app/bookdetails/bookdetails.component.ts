@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { PathConstants } from '../CommonModules/pathcontants';
 import { RestAPIService } from '../restapi.service';
 
@@ -8,6 +9,8 @@ import { RestAPIService } from '../restapi.service';
   styleUrls: ['./bookdetails.component.css']
 })
 export class BookdetailsComponent implements OnInit {
+  
+  
   studentname:any;
   studentregno:any;
   bookname:any;
@@ -17,16 +20,23 @@ export class BookdetailsComponent implements OnInit {
  cols:any;
  id:any;
  data:any;
-  constructor(private restApiService: RestAPIService) { }
+
+
+
+
+
+  constructor(private restApiService: RestAPIService) {
+    
+   }
 
   ngOnInit(): void {
     this.cols = [
       { field: 'studentname', header: 'studentname', align: 'left !important' },
       { field: 'studentregno', header: 'studentregno', align: 'left !important' },
-      { field: 'bookname', header: 'bookname', align: 'right !important' },
-      { field: 'bookcategory', header: 'bookcategory', align: 'left !important' },
-      { field: 'authorname', header: 'authorname', align: 'left !important' },
-      { field: 'publishdate', header: 'publishdate', align: 'left !important' },
+      { field: 'bookname', header: 'Bookname', align: 'right !important' },
+      { field: 'bookcategory', header: 'Bookcategory', align: 'left !important' },
+      { field: 'authorname', header: 'Authorname', align: 'left !important' },
+      { field: 'publishdate', header: 'Publishdate', align: 'left !important' },
     ]
   }
   onSave(){

@@ -27,7 +27,7 @@ export class IssuebookComponent implements OnInit {
       { field: 'bookid', header: 'BookId', align: 'left !important' },
       { field: 'bookname', header: 'BookName', align: 'left !important' },
       { field: 'studentregno', header: 'StudentRegno', align: 'right !important' },
-      { field: 'issueinfo', header: 'issueinfo', align: 'left !important' },
+      { field: 'issueinfo', header: 'Issueinfo', align: 'left !important' },
       { field: 'borrowdate', header: 'Borrowdate', align: 'left !important' },
       { field: 'issueinfo', header: 'Issuedate', align: 'left !important' },
       { field: 'externdate', header: 'Externdate', align: 'left !important' },
@@ -52,9 +52,7 @@ export class IssuebookComponent implements OnInit {
   onview() {
     this.restApiService.get(PathConstants.bookissues_Get).subscribe(res => { this.data = res })
   }
-
   onEdit(selectedRow: {
-
     externdate: any;
     issuedate: any;
     studentregno: any;
