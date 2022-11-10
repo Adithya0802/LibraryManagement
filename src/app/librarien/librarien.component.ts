@@ -14,8 +14,8 @@ export class LibrarienComponent implements OnInit {
 
   ngOnInit(): void {
   }
-onSave(){
- this.router.navigate(['/bookinfo']);
+onLogin(){
+ this.router.navigate(['/libpage']);
 
  const params={
 'username':this.username,
@@ -23,4 +23,5 @@ onSave(){
 
  }
 }
+
 }

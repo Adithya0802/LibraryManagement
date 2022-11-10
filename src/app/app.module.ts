@@ -46,6 +46,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { BookstatusComponent } from './bookstatus/bookstatus.component';
 import { LibpageComponent } from './libpage/libpage.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import { ViewbookComponent } from './viewbook/viewbook.component';
 
 
 
@@ -68,7 +69,8 @@ import {SplitButtonModule} from 'primeng/splitbutton';
     LibregComponent,
     BookinfoComponent,
     BookstatusComponent,
-    LibpageComponent
+    LibpageComponent,
+    ViewbookComponent
   ],
   imports: [
     BrowserModule,
