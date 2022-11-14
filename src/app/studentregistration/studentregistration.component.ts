@@ -54,6 +54,7 @@ export class StudentregistrationComponent implements OnInit {
       { field: 'fathername', header: 'Fathername', align: 'left !important' },
       { field: 'gender', header: 'Gender', align: 'left !important' },
       { field: 'dataofbirth', header: 'Dataofbirth', align: 'left !important' },
+      { field: 'age', header: 'Age', align: 'left !important' },
       { field: 'address', header: 'Address', align: 'left !important' },
       { field: 'pincode', header: 'Pincode', align: 'left !important' },
       { field: 'collegename', header: 'Collegename', align: 'left !important' },
