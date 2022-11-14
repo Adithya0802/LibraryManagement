@@ -10,18 +10,18 @@ export class LibrarienComponent implements OnInit {
   username: any;
   password: any;
 
-  constructor(private router :Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-onLogin(){
- this.router.navigate(['/libpage']);
+  onLogin() {
+    this.router.navigate(['/libpage']);
 
- const params={
-'username':this.username,
-'password':this.password, 
+    const params = {
+      'username': this.username,
+      'password': this.password,
 
- }
-}
+    }
+  }
 
 }

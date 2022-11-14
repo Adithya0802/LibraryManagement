@@ -25,7 +25,7 @@ export class LibpageComponent implements OnInit {
   }
 
   onIssue(){
-    
+    this.router.navigate(['/issuebook']);
   }
 
 onStudent(){
