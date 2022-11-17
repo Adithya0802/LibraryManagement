@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PathConstants } from '../CommonModules/pathcontants';
 import { RestAPIService } from '../restapi.service';
 
+
 @Component({
   selector: 'app-libreg',
   templateUrl: './libreg.component.html',
@@ -41,12 +42,14 @@ export class LibregComponent implements OnInit {
  newPassword: any;
  name:any;
  repeatpassword: any;
+  private _libreg: any;
 
 
 
   constructor(private restApiService: RestAPIService) { }
 
   ngOnInit(): void {
+    
     this.cols = [
       { field: 'name', header: 'Name', align: 'left !important' },
       { field: 'email', header: 'email', align: 'left !important' },
@@ -65,9 +68,11 @@ export class LibregComponent implements OnInit {
       'repeatpassword': this.repeatpassword,
     };
     this.restApiService.post(PathConstants.LibReg_Post, params).subscribe(res => { })
+    this.clearForm();
   }
   onView(){
-    this.restApiService.get(PathConstants.Libreg_Get).subscribe(res =>{this.data = res
+    this.restApiService.get(PathConstants.Libreg_Get).subscribe(res =>{
+      this.data = res
     })
   }
   
@@ -135,9 +140,13 @@ export class LibregComponent implements OnInit {
 
 
     }
-  }
+    
+}
+clearForm() {
+ this.name = null;
+ this.email = null;
+ this.password=null;
+ this.repeatpassword=null;
 }
 
-
-
-
+}

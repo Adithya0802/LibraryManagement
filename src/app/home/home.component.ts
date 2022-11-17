@@ -8,6 +8,8 @@ import { RestAPIService } from '../restapi.service';
 })
 export class HomeComponent implements OnInit {
   data: any;
+  test:any;
+  test1:any;
   
   constructor(private restApiService: RestAPIService) { }
 
@@ -16,7 +18,17 @@ export class HomeComponent implements OnInit {
       {
         this.data = res[0].nos;
       })
-  
+
+  this.restApiService.get(PathConstants.Bookcount_Get).subscribe(res => 
+    {
+      this.test=res[0].nob;
+      
+    })
+
+  this.restApiService.get(PathConstants.bookoutcount_Get).subscribe(res =>
+    {
+      this.test1=res[0].noo
+    })
   }
 
 }

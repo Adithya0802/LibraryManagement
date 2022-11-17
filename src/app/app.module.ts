@@ -70,7 +70,7 @@ import { ViewbookComponent } from './viewbook/viewbook.component';
     BookinfoComponent,
     BookstatusComponent,
     LibpageComponent,
-    ViewbookComponent
+    ViewbookComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,6 +102,8 @@ import { ViewbookComponent } from './viewbook/viewbook.component';
     MenubarModule,
     BrowserAnimationsModule,
     SplitButtonModule,
+  
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

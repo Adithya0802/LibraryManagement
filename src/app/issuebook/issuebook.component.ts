@@ -23,7 +23,9 @@ export class IssuebookComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.onview();
     this.cols = [
+
       { field: 'bookid', header: 'BookId', align: 'left !important' },
       { field: 'bookname', header: 'BookName', align: 'left !important' },
       { field: 'studentregno', header: 'StudentRegno', align: 'right !important' },
@@ -71,6 +73,14 @@ export class IssuebookComponent implements OnInit {
       this.issuedate = selectedRow.issuedate;
       this.externdate = selectedRow.externdate;
     }
+  }
+  onclear(){
+    this.bookid=null;
+    this.bookname=null;
+    this.studentregno=null;
+    this.borrowdate=null;
+    this.issuedate=null;
+    this.externdate=null;
   }
 }
 

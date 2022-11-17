@@ -30,6 +30,7 @@ export class BookinfoComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.onView();
     this.cols = [
       { field: 'subject', header: 'Subject', align: 'left !important' },
       { field: 'title', header: 'Title', align: 'left !important' },
@@ -55,7 +56,7 @@ export class BookinfoComponent implements OnInit {
   }
   onView() {
     this.restapiservice.get(PathConstants.bookinfo_Get).subscribe(res => {this.data = res })
-
+this.onclear();
   }
   onEdit(selectedRow: {
     date: any;
@@ -70,7 +71,6 @@ export class BookinfoComponent implements OnInit {
 
     if (selectedRow !== null && selectedRow !== undefined) {
 
-      this.id = selectedRow.sno;
       this.subject = selectedRow.subject;
       this.title = selectedRow.title;
       this.author = selectedRow.author;
@@ -80,6 +80,16 @@ export class BookinfoComponent implements OnInit {
       this.shelf = selectedRow.shelf;
       
     }
+  }
+  onclear(){
+    this.subject=null;
+    this.title=null;
+    this.author=null;
+    this.author=null;
+    this.name=null;
+    this.date=null;
+    this.copies=null;
+    this.shelf=null;
   }
 }
 
