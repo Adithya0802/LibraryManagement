@@ -1,4 +1,3 @@
-!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,8 +11,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<br>
-<br>
 <section class="vh-100" style="background-color: #eee;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -40,7 +37,8 @@
                   <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example3c">Your Email</label><span
                       class="form-mandatory-field">*</span>
-                    <input type="email" id="form3Example3c" required name="email" class="form-control" [(ngModel)]="email" type="text">
+                    <input type="email" id="form3Example3c" required name="email" class="form-control"
+                      [(ngModel)]="email" type="text">
                   </div>
                 </div>
 
@@ -48,8 +46,8 @@
 
                   <div class="form-outline flex-fill mb-0">
                     <label for="phone">New password</label><span class="form-mandatory-field">*</span>
-                    <div> <input type="password" name="_newpwd" class="form-control" autocomplete="off" [(ngModel)]="password"
-                        minlength="8" maxlength="12" (input)="check(password)" required>
+                    <div> <input type="password" name="_newpwd" class="form-control" autocomplete="off"
+                        [(ngModel)]="password" minlength="8" maxlength="12" (input)="check(password)" required>
 
 
                     </div>
@@ -90,16 +88,10 @@
                 </div>
 
                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                  <button type="button" class="btn btn-primary btn-lg" style="margin-right: 10px;"
-                    (click)="onSave()"  [disabled]="(!name|| !email|| !password|| !repeatpassword)">Register</button>
-                  <button type="button" class="btn btn-primary btn-lg" (click)="onView()">View</button>
+                  <button type="button" class="btn btn-primary btn-lg" style="margin-right: 10px;" (click)="onSave()"
+                    [disabled]="(!name|| !email|| !password|| !repeatpassword)">Register</button>
+
                 </div>
-
-
-
-
-
-
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
@@ -154,7 +146,9 @@
           <span class="p-column-title">
             Edit/Update :
           </span>
-          <span><p-button label="Edit" icon="pi pi-check" iconPos="right" (onClick)="onEdit(rowData)"></p-button></span>
+          <span>
+            <p-button label="Edit" icon="pi pi-check" iconPos="right" (onClick)="onEdit(rowData)"></p-button>
+          </span>
         </td>
       </tr>
     </ng-template>

@@ -16,5 +16,8 @@ export class PathConstants {
     public static readonly studentregs_Post ='Studentreg/Post';
     public static readonly studentregs_Get ='Studentreg';
     public static readonly studentcount_Get ='studentcount';
+    public static readonly Bookcount_Get ='Bookcount';
+    public static readonly bookoutcount_Get ='bookoutcount';
+
 
 }

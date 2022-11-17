@@ -104,6 +104,8 @@ import { ViewbookComponent } from './viewbook/viewbook.component';
     MenubarModule,
     BrowserAnimationsModule,
     SplitButtonModule,
+  
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

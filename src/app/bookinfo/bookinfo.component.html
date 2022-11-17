@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <section class="vh-100" style="background-color: #eee;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -20,8 +21,11 @@
           <div class="card-body p-md-5">
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <br>
+                <br>
+                <br>
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Book Information</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">ADD BOOK</p>
 
                 <!-- <form class="mx-1 mx-md-4"> -->
 
@@ -109,7 +113,7 @@
                   <div class="py-3 pb-4 border-bottom">
                     <button class="btn btn-primary mr-3" (click)="onSubmit()" [disabled]="(!subject|| !title||!author||!name||!date||!copies||!shelf)"
                       style="margin-right: 10px;">Submit</button>
-                    <button class="btn btn-primary mr-3" (click)="onView()">view</button>
+                   <!-- <button class="btn btn-primary mr-3" (click)="onView()">view</button>-->
                   </div>
 
                 <!-- </form> -->
@@ -132,6 +136,9 @@
 
 
 
+<br>
+<br>
+<div></div>
   <p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]" responsiveLayout="scroll"
     styleClass="p-datatable-gridlines">
     <ng-template pTemplate="header" let-columns>

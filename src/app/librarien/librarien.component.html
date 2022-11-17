@@ -8,7 +8,7 @@
     crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="vicky" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <section class="vh-100">
@@ -25,14 +25,14 @@
         <!-- Email input -->
         <div class="form-outline mb-4">
           <label class="form-label" for="form1Example13">Email Id</label><span class="form-mandatory-field">*</span>
-          <input type="email" id="form1Example13" class="form-control form-control-lg" [(ngModel)]="username">
+          <input type="email" id="form1Example13" class="form-control form-control-lg" [(ngModel)]="email">
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
           <label class="form-label" for="form1Example23">Password</label><span class="form-mandatory-field">*</span>
           <input type="password" id="form1Example23" class="form-control form-control-lg" [(ngModel)]="password">
-          
+
         </div>
 
         <div class="d-flex justify-content-around align-items-center mb-4">
@@ -47,7 +47,7 @@
 
 
 
-        <button type="button" class="btn btn-primary btn-block mb-4" (click)="onLogin()">Sign in</button>
+        <button type="button" class="btn btn-primary btn-block mb-4" (click)="onLogin()" [disabled]="(!email|| !password)">Sign in</button>
 
         <div class="text-center">
           <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="libreg" class="">Register</a></p>
