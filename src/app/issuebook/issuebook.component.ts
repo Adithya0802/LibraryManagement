@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { PathConstants } from '../CommonModules/pathcontants';
 import { RestAPIService } from '../restapi.service';
 
@@ -18,6 +19,7 @@ export class IssuebookComponent implements OnInit {
   data: any;
   id: any;
   cols: any;
+  issuebook: any;
   constructor(private restApiService: RestAPIService) {
 
   }
@@ -34,6 +36,7 @@ export class IssuebookComponent implements OnInit {
     ]
 
   }
+  
   onSave() {
     const params = {
       'sno': this.id,
@@ -48,6 +51,7 @@ export class IssuebookComponent implements OnInit {
     }
     this.restApiService.post(PathConstants.bookissues_Post, params).subscribe(res => { })
     console.log("**", this.issueinfo);
+    
   }
   onview() {
     this.restApiService.get(PathConstants.bookissues_Get).subscribe(res => { this.data = res })
@@ -72,5 +76,5 @@ export class IssuebookComponent implements OnInit {
       this.externdate = selectedRow.externdate;
     }
   }
+ 
 }
-

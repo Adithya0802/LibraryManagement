@@ -28,20 +28,20 @@
             </div>
             <div class="col-xl-6">
               <div class="card-body p-md-5 text-black">
-                <h3 class="mb-5 text-uppercase ">ISSUE OF BOOK</h3>
+                <h2 class="mb-5 text-uppercase ">ISSUE OF BOOK</h2>
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <label class="form-label" for="form3Example1m">Book Id</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="text" id="form3Example1m" class="form-control " [(ngModel)]="bookid" />
+                      <input type="text" id="form3Example1m" class="form-control form-control-lg " [(ngModel)]="bookid" />
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <label class="form-label" for="form3Example1n">Book name</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="text" id="form3Example1n" class="form-control" [(ngModel)]="bookname" />
+                      <input type="text" id="form3Example1n" class="form-control form-control-lg" [(ngModel)]="bookname" />
 
                     </div>
                   </div>
@@ -51,13 +51,13 @@
                     <div class="form-outline">
                       <label class="form-label" for="form3Example1m">Student Regno:</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="number" id="form3Example1m" class="form-control " [(ngModel)]="studentregno" />
+                      <input type="number" id="form3Example1m" class="form-control form-control-lg" [(ngModel)]="studentregno" />
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <label for="_commodityname">Issue Info</label><span class="form-mandatory-field">*</span>
-                      <select class="select form-control-lg" class="form-control form-control" [(ngModel)]="issueinfo">
+                      <select class="select form-control-lg" class="form-control form-control-lg" [(ngModel)]="issueinfo">
                         <option value="choose">Choose option</option>
                         <option value="Return book">Return Book</option>
                         <option value="Extern book">Extern Date</option>
@@ -70,7 +70,7 @@
                   <div class="col-md-6 mb-4">
                     <label for="example">Borrow date:</label><span class="form-mandatory-field">*</span>
                     <div id="date" class=" datepicker">
-                      <input placeholder="Select date" type="date" id="example" class="form-control"
+                      <input placeholder="Select date" type="date" id="example" class="form-control form-control-lg"
                         [(ngModel)]="borrowdate">
                       <i class="calendar" tabindex=0></i>
                     </div>
@@ -78,7 +78,7 @@
                   <div class="col-md-6 mb-4">
                     <label for="example">Issue date:</label>
                     <div id="date" class=" datepicker">
-                      <input placeholder="Select date" type="date" id="example" class="form-control"
+                      <input placeholder="Select date" type="date" id="example" class="form-control form-control-lg"
                         [(ngModel)]="issuedate">
                       <i class="calendar" tabindex=0></i>
                     </div>
@@ -88,7 +88,7 @@
                   <div class="col-md-6 mb-4">
                     <label for="example">Extern date:</label>
                     <div id="date" class=" datepicker">
-                      <input placeholder="Select date" type="date" id="example" class="form-control"
+                      <input placeholder="Select date" type="date" id="example" class="form-control form-control-lg"
                         [(ngModel)]="externdate">
                       <i class="calendar" tabindex=0></i>
                     </div>

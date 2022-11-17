@@ -51,6 +51,7 @@ import { ViewbookComponent } from './viewbook/viewbook.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,8 @@ import { ViewbookComponent } from './viewbook/viewbook.component';
     BookinfoComponent,
     BookstatusComponent,
     LibpageComponent,
-    ViewbookComponent
+    ViewbookComponent,
+   
   ],
   imports: [
     BrowserModule,

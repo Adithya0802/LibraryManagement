@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PathConstants } from '../CommonModules/pathcontants';
+import { RestAPIService } from '../restapi.service';
 
 
 
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
   username: any;
   cities: any;
   number: any;
-
+  data:any[]=[];
 
   CheckApplicaitonStatus() {
     throw new Error('Method not implemented.');
@@ -31,10 +33,14 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private restApiService: RestAPIService) { }
 
 
   ngOnInit(): void {
+    {
+      this.restApiService.get(PathConstants.studentregs_Get).subscribe(res => {this.data = res })
+    }
+    
   }
 
   onSave() {
@@ -42,7 +48,17 @@ export class LoginComponent implements OnInit {
 
   }
   onSubmit() {
-    this.router.navigate(['/bookdetails']);
+    this.data.forEach((i:any) => {
+      if(
+        i.regno === this.number && this.password === this.password) {
+          this.router.navigate(['/bookdetails'])
+        } 
+        else{
+          console.log('no match');
+        }
+      
+    })
+    
   }
 
 }

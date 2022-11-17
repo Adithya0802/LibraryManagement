@@ -126,12 +126,12 @@
       </div>
     </div>
   </div>
+
 </section>
 <br>
-<br>
-<br>
 
-<div>
+
+
   <p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]" responsiveLayout="scroll"
     styleClass="p-datatable-gridlines">
     <ng-template pTemplate="header" let-columns>
@@ -167,10 +167,10 @@
           <span class="p-column-title">
             Edit/Update :
           </span>
-          <span><button icon="pi pi-pencil" pButton type="button" (click)="onEdit(rowData)">
-            </button></span>
+          <span>
+            <p-button label="Edit" icon="pi pi-check" iconPos="right" (onClick)="onEdit(rowData)"></p-button>
+           </span>
         </td>
       </tr>
     </ng-template>
   </p-table>
-</div>
