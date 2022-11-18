@@ -11,7 +11,7 @@ import { IssuebookComponent } from './issuebook/issuebook.component';
 import { HomeComponent } from './home/home.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SettingComponent } from './setting/setting.component';
+
 import { ForgetComponent } from './forget/forget.component';
 import { LibrarienComponent } from './librarien/librarien.component';
 import { StatusComponent } from './status/status.component';
@@ -47,6 +47,7 @@ import { BookstatusComponent } from './bookstatus/bookstatus.component';
 import { LibpageComponent } from './libpage/libpage.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import { ViewbookComponent } from './viewbook/viewbook.component';
+import { SettingComponent } from './setting/setting.component';
 
 
 
@@ -63,7 +64,6 @@ import { ViewbookComponent } from './viewbook/viewbook.component';
     HomeComponent,
     BookdetailsComponent,
     DashboardComponent,
-    SettingComponent,
     ForgetComponent,
     LibrarienComponent,
     StatusComponent,
@@ -72,6 +72,7 @@ import { ViewbookComponent } from './viewbook/viewbook.component';
     BookstatusComponent,
     LibpageComponent,
     ViewbookComponent,
+    SettingComponent,
    
   ],
   imports: [

@@ -43,6 +43,8 @@ export class StudentregistrationComponent implements OnInit {
   NumericErrMsg:any;
   UpperCaseErrMsg:any;
   LengthErrMsg:any;
+  disableSave:boolean=false;
+
  
   constructor(private restApiService: RestAPIService) { }
 
@@ -133,13 +135,15 @@ this.restApiService.post(PathConstants.studentregs_Post, params).subscribe(res =
   }
 checkPassword() {
   if (this.password !== undefined && this.password !== null && this.password.trim() !== '' &&
-  this.password1 !== undefined && this.password1 !== null && this.password.trim() !== '') {
-        if(this.newPassword.trim() !== this.confirmpassword.trim()) {
+  this.password !== undefined && this.password !== null && this.password.trim() !== '') {
+        if(this.confirmpassword.trim() !== this.confirmpassword.trim()) {
           this.showErrMsg = true;
           this.showMatchMsg = false;
+          this.disableSave=false;
         } else {
           this.showErrMsg = false;
           this.showMatchMsg = true;
+          this.disableSave=true;
         }
   } else {
     this.showErrMsg = false;
@@ -150,30 +154,40 @@ check(password:any) {
 
    if (password.match(/[@$!%*?&]/g)) {
    this.SpecialCharErrMsg = false;
+   this.disableSave=false;
    } else {
    this.SpecialCharErrMsg = true;
    this.pswdStrongMsg = false;
+   this.disableSave=true;
   }    
  if (password.match(/[0-9]/g)) {   
    this.NumericErrMsg = false;
+   this.disableSave=false;
   } else {    
   this.NumericErrMsg = true;    
-  this.pswdStrongMsg = false;    
+  this.pswdStrongMsg = false;  
+  this.disableSave=true;  
   }    
   if (password.match(/[A-Z]/g)) {    
-  this.UpperCaseErrMsg = false;    
+  this.UpperCaseErrMsg = false;   
+  this.disableSave=false; 
   } else {    
   this.UpperCaseErrMsg = true;    
   this.pswdStrongMsg = false;    
+  this.disableSave=true;
+
   }    
   if (password.length >= 8) {    
   this.LengthErrMsg = false;    
+  this.disableSave=false;
   } else {    
   this.LengthErrMsg = true;    
   this.pswdStrongMsg = false;
+  this.disableSave=true;
   }
   if (password.match(/[@$!%*?&]/g) && password.match(/[0-9]/g) && password.match(/[A-Z]/g) && password.length > 8)
   this.pswdStrongMsg = true;
+  this.disableSave=false;
  }
 
 public CalculateAge(): void
