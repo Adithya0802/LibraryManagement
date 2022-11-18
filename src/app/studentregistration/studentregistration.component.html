@@ -12,7 +12,7 @@
 </head>
 
 <section >
- 
+ <!-- <form #f="ngForm"> -->
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col">
@@ -118,17 +118,29 @@
                [ngStyle]="{'color': (pincode !== null && pincode !== undefined) ? (pincode>pincode_max ? 'crimson' : '#495057') : '#495057'}">
              Pincode<span class="form-mandatory-field">*</span></label>
                </div>
-               <input class="text" name="_pincode" class="form-control form-control-lg"  pInputText minlength="6"
+               <input class="text" name="pincode" class="form-control form-control-lg"  pInputText minlength="6"
                  maxlength="6" [(ngModel)]="pincode" appInputFormat="digitOnly" pattern="^6[0-4]\d{4}$" required />
    <div>  <span *ngIf="(pincode != null && pincode !== undefined)" >
     <span *ngIf="(pincode.invalid)||(pincode>pincode_max)"
-    style="color: crimson;font-size: 12px;">Invalid pincode</span>
-   
-          </span>
-  
+    style="color: crimson;font-size: 12px;">Invalid pincode</span>  </span>
+    </div>                </div> 
+                  <!-- <div class="form-outline mb-4">
+                    <div><label for="_pincode"
+                   [ngStyle]="{'color': (pincode !== null && pincode !== undefined) ? (pincode>pincode_max ? 'crimson' : '#495057') : '#495057'}">
+                 Pincode<span class="form-mandatory-field">*</span></label>
+                   </div>
+                   <input class="p-col-12" name="_pincode" type="text" pInputText minlength="6"
+                     maxlength="6" [(ngModel)]="pincode1" appInputFormat="digitOnly" pattern="^6[0-4]\d{4}$" required />
+       <div>  <span *ngIf="(pincode != null && pincode !== undefined)">
+       <span *ngIf="(f.controls._pincode.invalid)||(pincode>pincode_max)"
+      style="color: crimson;font-size: 12px;">Invalid pincode</span>
+      
+              </span>
+      
+          </div>
+      
       </div>
-
-                  </div>
+     -->
   
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example97">collegename</label><span
@@ -268,6 +280,6 @@
         </tr>
     </ng-template>
   </p-table>
-
+<!-- </form> -->
   </section>
 </html>

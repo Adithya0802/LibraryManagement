@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
+
 import { PathConstants } from '../CommonModules/pathcontants';
 import { RestAPIService } from '../restapi.service';
 
@@ -15,12 +15,13 @@ export class LibrarienComponent implements OnInit {
   password: any;
   data: any[] = [];
   
-  constructor(private restApiService: RestAPIService, private router: Router,private _messegaeService:MessageService,) { }
+  constructor(private restApiService: RestAPIService, private router: Router) { }
   ngOnInit(): void {
     this.restApiService.get(PathConstants.Libreg_Get).subscribe(res => {
       this.data = res;
     })
   }
+  
   onLogin() {
     this.data.forEach((i: any) => {
       if (

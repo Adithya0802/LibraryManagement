@@ -49,6 +49,7 @@ export class LibregComponent implements OnInit {
   constructor(private restApiService: RestAPIService) { }
 
   ngOnInit(): void {
+    this.onView();
     
     this.cols = [
       { field: 'name', header: 'Name', align: 'left !important' },

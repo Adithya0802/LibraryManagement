@@ -60,7 +60,7 @@
                     <div class="form-outline">
                       <label class="form-label" for="form3Example1m">Book Edition</label><span
                         class="form-mandatory-field">*</span>
-                      <select name="select form-control-lg" class="form-control form-control-lg"  [(ngModel)]="bookname">
+                      <select name="select form-control-lg" class="form-control form-control-lg"  [(ngModel)]="bookedition">
                         
                         <option value="1"> Edition I</option>
                         <option value="2">Edition II</option>
@@ -88,7 +88,7 @@
               </div>
 
               <div class="py-3 pb-4 border-bottom">
-                <button class="btn btn-primary mr-3" style="margin-right: 10px;" (click)="onSave()"  [disabled]="(!studentname||  !studentregno|| !bookname|| !bookcategory|| !authorname|| !publishdate)">Submit</button>
+                <button class="btn btn-primary mr-3" style="margin-right: 10px;" (click)="onSave()"  [disabled]="(!studentname||  !studentregno|| !bookedition|| !bookcategory|| !publishdate)">Submit</button>
                 <button class="btn btn-primary mr-3" style="margin-right: 10px;" (click)="onview()">view</button>
               </div>
 
@@ -112,7 +112,10 @@
 
 
           </th>
-      </tr>
+          <th>
+            Approve
+        </tr>
+  
   </ng-template>
   <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
       <tr>
@@ -143,7 +146,24 @@
                   
                 </span>
           </td>
-      </tr>
+        
+          <td class="td-border">
+            <span class="p-column-title">
+              Approved :
+            </span>
+            <span>
+              <button icon="pi pi-exclamation-circle" *ngIf="(rowData.approvalstatus == 0)"
+              pButton type="button" label="Approve" pTooltip="Toggle to Approve"
+              style="background: #08747b !important;"
+              (click)="onApprove(rowData, 0)">
+          </button>
+              <button icon="pi pi-check" *ngIf="(rowData.approvalstatus == 1)" pButton
+                  type="button" label="Disapprove" pTooltip="Toggle to Disapprove" style="background: green !important;"
+                  (click)="onApprove(rowData, 1)">
+              </button>
+              </span>
+              </td>
+        </tr>
   </ng-template>
 </p-table>
 </section>

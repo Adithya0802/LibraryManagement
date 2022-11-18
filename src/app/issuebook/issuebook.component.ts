@@ -20,6 +20,8 @@ export class IssuebookComponent implements OnInit {
   id: any;
   cols: any;
   issuebook: any;
+
+  value: any;
   constructor(private restApiService: RestAPIService) {
 
   }
@@ -38,7 +40,7 @@ export class IssuebookComponent implements OnInit {
     ]
 
   }
-  
+
   onSave() {
     const params = {
       'sno': this.id,
@@ -53,7 +55,7 @@ export class IssuebookComponent implements OnInit {
     }
     this.restApiService.post(PathConstants.bookissues_Post, params).subscribe(res => { })
     console.log("**", this.issueinfo);
-    
+
   }
   onview() {
     this.restApiService.get(PathConstants.bookissues_Get).subscribe(res => { this.data = res })
@@ -78,13 +80,45 @@ export class IssuebookComponent implements OnInit {
       this.externdate = selectedRow.externdate;
     }
   }
- 
-  onclear(){
-    this.bookid=null;
-    this.bookname=null;
-    this.studentregno=null;
-    this.borrowdate=null;
-    this.issuedate=null;
-    this.externdate=null;
+
+  onclear() {
+    this.bookid = null;
+    this.bookname = null;
+    this.studentregno = null;
+    this.borrowdate = null;
+    this.issuedate = null;
+    this.externdate = null;
   }
+  onApprove(rowData: any,value:any) {
+    if (value === 0) {
+      ///decline
+      this.data.forEach((i:any) => {
+        if (i.sno === rowData.sno)
+          i.approvalstatus = 1; // confirm to decline
+        
+      })
+    }else {
+      ///absent
+      this.data.forEach((i:any) => {
+        if (i.sno === rowData.sno)
+          i.approvalstatus = 0; // decline to confirm
+      })
+    }
+
+
+    //update
+    const params = {
+      'sno': rowData.sno,
+      'approvalstatus': rowData.approvalstatus
+    }
+    this.restApiService.post(PathConstants.updatebookissues_Post, params).subscribe(res => {
+      if (res) {
+      }
+      else {
+      }
+    })
+  }
+  
+      
+  
 }

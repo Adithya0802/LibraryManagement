@@ -13,9 +13,9 @@ export class BookdetailsComponent implements OnInit {
  
   studentname:any;
   studentregno:any;
-  bookname:any;
+  bookedition:any;
   bookcategory:any;
-  authorname:any;
+  
   publishdate:any;
  cols:any;
  id:any;
@@ -23,6 +23,7 @@ export class BookdetailsComponent implements OnInit {
  selectedCountry: any;
  selectedCity3:any;
     countries: any[] = [];
+    
 //item:any[]=[];
     groupedCities: SelectItemGroup[];
   constructor(private restApiService: RestAPIService) {
@@ -83,9 +84,8 @@ export class BookdetailsComponent implements OnInit {
     this.cols = [
       { field: 'studentname', header: 'studentname', align: 'left !important' },
       { field: 'studentregno', header: 'studentregno', align: 'left !important' },
-      { field: 'bookname', header: 'Bookname', align: 'right !important' },
+      { field: 'bookedition', header: 'Bookedition', align: 'right !important' },
       { field: 'bookcategory', header: 'Bookcategory', align: 'left !important' },
-      { field: 'authorname', header: 'Authorname', align: 'left !important' },
       { field: 'publishdate', header: 'Publishdate', align: 'left !important' },
     ]
   }
@@ -94,12 +94,9 @@ export class BookdetailsComponent implements OnInit {
       'sno':this.id,
       'studentname': this.studentname,
       'studentregno': this.studentregno,
-      'bookname': this.bookname,
+      'bookedition': this.bookedition,
       'bookcategory': this.bookcategory,
-      'authorname':this.authorname,
       'publishdate':this.publishdate,
-     
-     
     }
     this.restApiService.post(PathConstants.bookdetails_Post, params).subscribe(res => { })
        
@@ -111,9 +108,9 @@ export class BookdetailsComponent implements OnInit {
 
     studentname: any;
     studentregno: any;
-    bookname: any;
+    bookedition: any;
     bookcategory: any;
-    authorname: any;
+   
     publishdate: any;
     sno: any;
    
@@ -122,11 +119,37 @@ export class BookdetailsComponent implements OnInit {
    this.id=selectedRow.sno;
    this.studentname= selectedRow.studentname;
    this.studentregno=selectedRow.studentregno;
-   this.bookname=selectedRow.bookname;
+   this.bookedition=selectedRow.bookedition;
    this.bookcategory=selectedRow.bookcategory;
-   this.authorname=selectedRow.authorname;
    this.publishdate=selectedRow.publishdate;
    
    }
    }
+   onApprove(rowData: any,value:any) {
+    if (value === 0) {
+      ///decline
+      this.data.forEach((i:any) => {
+        if (i.sno === rowData.sno)
+          i.approvalstatus = 1; // confirm to decline
+        
+      })
+    }else {
+      ///absent
+      this.data.forEach((i:any) => {
+        if (i.sno === rowData.sno)
+          i.approvalstatus = 0; // decline to confirm
+      })
+    }
+    //update
+    const params = {
+      'sno': rowData.sno,
+      'approvalstatus': rowData.approvalstatus
+    }
+    this.restApiService.post(PathConstants.updatebookregisters_Post, params).subscribe(res => {
+      if (res) {
+      }
+      else {
+      }
+    })
+  }
 }

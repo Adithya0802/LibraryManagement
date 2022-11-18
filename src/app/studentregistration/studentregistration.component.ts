@@ -10,8 +10,10 @@ import { RestAPIService } from '../restapi.service';
 })
 export class StudentregistrationComponent implements OnInit {
   pincode: any;
+
+  pincode_max: any;
   id:any=0;
-  pincode_max!: number;
+  
   Password: any;
   confirmpassword: any;
   fathername:any;
