@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PathConstants } from '../CommonModules/pathcontants';
+import { RestAPIService } from '../restapi.service';
 
 @Component({
   selector: 'app-libpage',
@@ -7,9 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./libpage.component.css']
 })
 export class LibpageComponent implements OnInit {
-  
 
-  constructor(private router :Router) { }
+  data:any;
+
+  constructor(private router :Router ,private restApiService:RestAPIService) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +30,9 @@ export class LibpageComponent implements OnInit {
   onIssue(){
     this.router.navigate(['/issuebook']);
   }
-
+  // onview(){
+  //   this.restApiService.get(PathConstants.bookdetails_Get).subscribe(res => {this.data = res })
+  // }
 onStudent(){
  
 }

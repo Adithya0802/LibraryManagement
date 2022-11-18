@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/studentregistration']);
 
   }
+ 
   onSubmit() {
     this.data.forEach((i:any) => {
       if(

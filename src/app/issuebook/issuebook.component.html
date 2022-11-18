@@ -121,6 +121,10 @@
 
 
         </th>
+        <th>
+          Approve
+        </th>
+       
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
@@ -149,6 +153,22 @@
           </span>
           <span><p-button label="Edit" icon="pi pi-check" iconPos="right" (onClick)="onEdit(rowData)"></p-button></span>
         </td>
+        <td class="td-border">
+          <span class="p-column-title">
+            Approved :
+          </span>
+          <span>
+            <button icon="pi pi-exclamation-circle" *ngIf="(rowData.approvalstatus == 0)"
+            pButton type="button" label="Approve" pTooltip="Toggle to Approve"
+            style="background: #08747b !important;"
+            (click)="onApprove(rowData, 0)">
+        </button>
+            <button icon="pi pi-check" *ngIf="(rowData.approvalstatus == 1)" pButton
+                type="button" label="Disapprove" pTooltip="Toggle to Disapprove" style="background: green !important;"
+                (click)="onApprove(rowData, 1)">
+            </button>
+            </span>
+            </td>
       </tr>
     </ng-template>
   </p-table>
