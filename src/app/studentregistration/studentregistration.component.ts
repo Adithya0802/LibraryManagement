@@ -9,6 +9,7 @@ import { RestAPIService } from '../restapi.service';
   styleUrls: ['./studentregistration.component.css']
 })
 export class StudentregistrationComponent implements OnInit {
+  
   pincode: any;
 
   pincode_max: any;
@@ -28,7 +29,7 @@ export class StudentregistrationComponent implements OnInit {
   cols: any;
   data: any[] =[];
   firstname:any;
-  lastname: any;
+  lastname:any;
   dataofbirth: any = Date;
   phoneno:any;
   pincode1:any;
@@ -46,9 +47,12 @@ export class StudentregistrationComponent implements OnInit {
   UpperCaseErrMsg:any;
   LengthErrMsg:any;
   disableSave:boolean=false;
+  disableemail: boolean=false;
+  Specialemailerr: boolean |undefined;
+  
+  constructor(private restApiService: RestAPIService) { 
 
- 
-  constructor(private restApiService: RestAPIService) { }
+  }
 
   ngOnInit(): void {
     this.cols = [
@@ -70,9 +74,9 @@ export class StudentregistrationComponent implements OnInit {
 ]
   }
   
-  onSave(){
-    const params = {
-    'sno':this.id,
+  onSave(){  
+    console.log("++",this.regno);
+    const params = {    'sno':this.id,
     'firstname':this.firstname,
     'lastname':this.lastname,
     'regno':this.regno,
@@ -89,9 +93,18 @@ export class StudentregistrationComponent implements OnInit {
     'password':this.password,
     'confirmpassword':this.confirmpassword,
 
-
 }
 this.restApiService.post(PathConstants.studentregs_Post, params).subscribe(res => { })
+// this.data.forEach((j:any) => {
+//   if(
+//     j.regno !== this.regno) {
+     
+//     } 
+//     else{
+//       console.log(null);
+//     }
+  
+// })
   }
   onview(){
     this.restApiService.get(PathConstants.studentregs_Get).subscribe(res => {this.data = res })
@@ -113,8 +126,9 @@ this.restApiService.post(PathConstants.studentregs_Post, params).subscribe(res =
    gender:any;
    address:any;
    pincode:any;
-  dataofbirth:any;
-  age:any;
+   dataofbirth:any;
+   age:any;
+   
   } | null | undefined) {
    if(selectedRow !== null && selectedRow !==undefined){
   this.id=selectedRow.sno;
@@ -192,6 +206,17 @@ check(password:any) {
   this.disableSave=false;
  }
 
+ checkemail()
+ {
+  if (this.emailid.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+    this.Specialemailerr = false;
+    this.disableemail=true;
+    } else {
+    this.Specialemailerr = true;
+   
+    this.disableemail=true;
+   }    
+ }
 public CalculateAge(): void
 {
 

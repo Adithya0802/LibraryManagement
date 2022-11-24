@@ -17,7 +17,7 @@ export class AppComponent {
       this.hidemenu=false;
     }
     else{
-      this.hidemenu=true
+      this.hidemenu=true;
     }
   }
 })

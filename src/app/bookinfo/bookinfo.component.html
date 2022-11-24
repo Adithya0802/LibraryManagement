@@ -32,21 +32,34 @@
                   <div class="d-flex flex-row align-items-center mb-4">
 
                     <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example1c">The Book Subject</label><span
+                      <label class="form-label" for="form3Example1m">Book subject</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="text" id="form3Example1c" class="form-control" [(ngModel)]="subject">
+                      <select name="select form-control-lg" class="form-control"  [(ngModel)]="subject">
+                        <option value="1"> Tamil</option>
+                        <option value="2">English</option>
+                        <option value="3">Science</option>
+                        <option value="4">Social Science</option>
+                        <option value="5">storybook</option>
+                        </select>
 
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
 
-                    <div class="form-outline flex-fill mb-0">
+                    <div class="form-outline flex-fill mb-0" style="margin-right:10px">
                       <label class="form-label" for="form3Example3c">Book Title</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="email" id="form3Example3c" class="form-control"
-                        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" required [(ngModel)]="title">
-
+                      <!-- <input type="email" id="form3Example3c" class="form-control"
+                        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" required [(ngModel)]="title"> -->
+                        <select name="select form-control-lg" class="form-control " [(ngModel)]="title" > 
+                          <!-- <option *ngFor="let index of groupedCities" value="index.value">{{index.label}}</option> -->
+                           <!-- <option *ngFor="let index of items" value="index.value">{{index.label}}</option>  -->
+                           <optgroup *ngFor="let index of groupCities" label={{index.label}}>
+                           <option *ngFor="let i of index.items" value={{i.value}}> {{i.label}}
+                           </option>
+                          </optgroup>
+                    </select>
 
                     </div>
 
@@ -54,33 +67,30 @@
                       <label class="form-label" for="form3Example3c">Author</label><span
                         class="form-mandatory-field">*</span>
                       <input type="email" id="form3Example3c" class="form-control"
-                        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" required [(ngModel)]="author">
+                        required [(ngModel)]="author">
 
 
                     </div>
                   </div>
 
 
-                  <div class="d-flex flex-row align-items-center mb-4">
+                  <div class="d-flex flex-row align-items-center mb-4" style="margin-right:10px">
 
                     <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example4c">Published Name</label><span
+                      <label class="form-label" for="form3Example3c">Published Name</label><span
                         class="form-mandatory-field">*</span>
 
-                      <div> <input type="name" class="form-control " name="_name" pInputText minlength="8"
-                          maxlength="12" required [(ngModel)]="name">
+                     <input type="name" class="form-control " name="_name" 
+                        required [(ngModel)]="name">
 
                       </div>
-                    </div>
+            
 
                     <div class="form-outline flex-fill mb-0">
-                      <label for="example">Published Date</label><span class="form-mandatory-field">*</span>
-                      <div id="date" class=" datepicker">
+                      <label class="form-label" for="form3Example3c">Published Date</label><span
+                        class="form-mandatory-field">*</span>
                         <input placeholder="Select date" type="date" id="example" class="form-control"
                           [(ngModel)]="date">
-                        <i class="calendar" tabindex=0></i>
-                      </div>
-
                     </div>
                   </div>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SelectItemGroup } from 'primeng/api';
 import { PathConstants } from '../CommonModules/pathcontants';
 import { RestAPIService } from '../restapi.service';
 
@@ -25,8 +26,60 @@ export class BookinfoComponent implements OnInit {
   data: any[] = [];
   cols: any;
   date: any;
-
-  constructor(private restapiservice: RestAPIService) { }
+  selectedCountry: any;
+  selectedCity3:any;
+     countries: any[] = [];
+  groupCities: SelectItemGroup[];
+  constructor(private restapiservice: RestAPIService) {
+    this.groupCities = [
+      {
+          label: 'Tamil', value: 'TA',
+          items: [
+              {label: 'Ponninselvan', value: 'PS'},
+              {label: 'Ramayanam', value: 'RS'},
+              {label: 'Udaiyar', value: 'UR'},
+              {label: 'Sirithu velichaham', value: 'SV'}
+          ]
+      },
+      {
+          label: 'English', value: 'EN',
+          items: [
+              {label: 'Jane Eyre', value: 'JE'},
+              {label: 'The Great Gatsby', value: 'GG'},
+              {label: 'Brave New World', value: 'BN'},
+              {label: 'Ulysses', value: 'US'}
+          ]
+      },
+      {
+          label: 'Science', value: 'SC',
+          items: [
+              {label: 'Globalwarming', value: 'GW'},
+              {label: 'Enivornmentscience', value: 'ES'},
+              {label: 'The origin of species', value: 'OS'},
+              {label: 'Growth&forms', value: 'GS'}
+          ]
+      },
+      {
+        label: 'SocialScience', value: 'SC',
+        items: [
+            {label: 'Breaking India', value: 'BI'},
+            {label: 'The India Day', value: 'ID'},
+            {label: 'SouthvsNorth', value: 'SN'},
+            {label: 'castes of India', value: 'CI'}
+        ]
+    },
+    {
+      label: 'StoryBook', value: 'SB',
+      items: [
+          {label: 'Wings of fire', value: 'WF'},
+          {label: 'The Growth tree', value: 'GT'},
+          {label: 'Harry potter', value: 'HP'},
+          {label: 'Life will be change one day', value: 'LD'}
+      ]
+  },
+  ];
+    
+   }
 
 
   ngOnInit(): void {

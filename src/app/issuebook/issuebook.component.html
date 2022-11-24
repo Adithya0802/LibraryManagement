@@ -98,7 +98,7 @@
                 <div class="py-3 pb-4 border-bottom">
 
                   <button type="button" class="btn btn-primary mr-3" style="margin-right: 10px;" (click)="onSave()"
-                    [disabled]="(!bookid|| !bookname|| !studentregno|| !issueinfo|| !borrowdate|| !issuedate|| !externdate)">Submit</button>
+                    [disabled]="(!bookid|| !bookname|| !studentregno|| !issueinfo|| !borrowdate|| !issuedate)">Submit</button>
                 <!---  <button type="button" class="btn btn-primary mr-3" style="margin-right: 10px;"(click)="onview()">View</button>--->
                 </div>
               </div>
@@ -118,13 +118,10 @@
         </th>
         <th>
           Edit/Update
-
-
         </th>
         <th>
           Approve
         </th>
-       
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
@@ -137,15 +134,12 @@
             {{rowIndex+1}}
           </span>
         </td>
-
-
         <td *ngFor="let col of columns" [style.text-align]="col.align" class="td-border">
           <span class="p-column-title">
             {{col.header}} :
           </span>
           <span style="text-align: end;"> {{rowData[col.field]}}
           </span>
-
         </td>
         <td class="td-border">
           <span class="p-column-title">

@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { PathConstants } from '../CommonModules/pathcontants';
 import { RestAPIService } from '../restapi.service';
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -47,7 +45,6 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/studentregistration']);
 
   }
- 
   onSubmit() {
     this.data.forEach((i:any) => {
       if(
