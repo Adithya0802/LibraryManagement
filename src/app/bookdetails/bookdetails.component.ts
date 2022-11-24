@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { SelectItemGroup } from 'primeng/api';
 import { PathConstants } from '../CommonModules/pathcontants';
 import { RestAPIService } from '../restapi.service';
@@ -96,6 +95,7 @@ export class BookdetailsComponent implements OnInit {
       'bookedition': this.bookedition,
       'bookcategory': this.bookcategory,
       'publishdate':this.publishdate,
+      'approvalstatus':0,
     }
     this.restApiService.post(PathConstants.bookdetails_Post, params).subscribe(res => { })
        
@@ -103,17 +103,8 @@ export class BookdetailsComponent implements OnInit {
   onview(){
     this.restApiService.get(PathConstants.bookdetails_Get).subscribe(res => {this.data = res })
   }
-  onEdit(selectedRow: {
+  onEdit(selectedRow:any) {
 
-    studentname: any;
-    studentregno: any;
-    bookedition: any;
-    bookcategory: any;
-   
-    publishdate: any;
-    sno: any;
-   
-   } | null | undefined) {
     if(selectedRow !== null && selectedRow !==undefined){
    this.id=selectedRow.sno;
    this.studentname= selectedRow.studentname;
@@ -122,24 +113,24 @@ export class BookdetailsComponent implements OnInit {
    this.bookcategory=selectedRow.bookcategory;
    this.publishdate=selectedRow.publishdate;
    
-   }
+    }
    }
    onApprove(rowData: any,value:any) {
     if (value === 0) {
-      ///decline
+      
       this.data.forEach((i:any) => {
         if (i.sno === rowData.sno)
-          i.approvalstatus = 1; // confirm to decline
+          i.approvalstatus = 1; 
         
       })
     }else {
-      ///absent
+      
       this.data.forEach((i:any) => {
         if (i.sno === rowData.sno)
-          i.approvalstatus = 0; // decline to confirm
+          i.approvalstatus = 0;
       })
     }
-    //update
+   
     const params = {
       'sno': rowData.sno,
       'approvalstatus': rowData.approvalstatus

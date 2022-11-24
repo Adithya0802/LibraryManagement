@@ -57,8 +57,6 @@ export class IssuebookComponent implements OnInit {
 
     }
     this.restApiService.post(PathConstants.bookissues_Post, params).subscribe(res => { })
-    console.log("**", this.issueinfo);
-
   }
   onview() {
     this.restApiService.get(PathConstants.bookissues_Get).subscribe(res => { this.data = res })

@@ -4,6 +4,7 @@ import { PathConstants } from '../CommonModules/pathcontants';
 import { RestAPIService } from '../restapi.service';
 
 
+
 @Component({
   selector: 'app-libreg',
   templateUrl: './libreg.component.html',
@@ -71,6 +72,7 @@ export class LibregComponent implements OnInit {
       'repeatpassword': this.repeatpassword,
     };
     this.restApiService.post(PathConstants.LibReg_Post, params).subscribe(res => { })
+    
     this.clearForm();
 
     
@@ -98,7 +100,6 @@ export class LibregComponent implements OnInit {
       this.showErrMsg = false;
     }
   }
-
 
   check(repeatpassword: any) {
 
@@ -140,10 +141,6 @@ export class LibregComponent implements OnInit {
     this.pswdStrongMsg = true;
     // this.validatePassword=false;
    }
-
-
-   
-
   onEdit(selectedRow: {
     email: any;
     name: any;
@@ -167,5 +164,5 @@ clearForm() {
  this.password=null;
  this.repeatpassword=null;
 }
-
 }
+ 
