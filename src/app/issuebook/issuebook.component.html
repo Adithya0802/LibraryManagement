@@ -34,14 +34,16 @@
                     <div class="form-outline">
                       <label class="form-label" for="form3Example1m">Book Id</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="text" id="form3Example1m" class="form-control form-control-lg " [(ngModel)]="bookid" />
+                      <input type="text" id="form3Example1m" class="form-control form-control-lg "
+                        [(ngModel)]="bookid" min="5">
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <label class="form-label" for="form3Example1n">Book name</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="text" id="form3Example1n" class="form-control form-control-lg" [(ngModel)]="bookname" />
+                      <input type="text" id="form3Example1n" class="form-control form-control-lg"
+                        [(ngModel)]="bookname" />
 
                     </div>
                   </div>
@@ -51,13 +53,15 @@
                     <div class="form-outline">
                       <label class="form-label" for="form3Example1m">Student Regno:</label><span
                         class="form-mandatory-field">*</span>
-                      <input type="number" id="form3Example1m" class="form-control form-control-lg" [(ngModel)]="studentregno" />
+                      <input type="number" id="form3Example1m" class="form-control form-control-lg"
+                        [(ngModel)]="studentregno" />
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <label for="_commodityname">Issue Info</label><span class="form-mandatory-field">*</span>
-                      <select class="select form-control-lg" class="form-control form-control-lg" [(ngModel)]="issueinfo">
+                      <select class="select form-control-lg" class="form-control form-control-lg"
+                        [(ngModel)]="issueinfo">
                         <option value="choose">Choose option</option>
                         <option value="Return book">Return Book</option>
                         <option value="Extern book">Extern Date</option>
@@ -99,7 +103,7 @@
 
                   <button type="button" class="btn btn-primary mr-3" style="margin-right: 10px;" (click)="onSave()"
                     [disabled]="(!bookid|| !bookname|| !studentregno|| !issueinfo|| !borrowdate|| !issuedate|| !externdate)">Submit</button>
-                <!---  <button type="button" class="btn btn-primary mr-3" style="margin-right: 10px;"(click)="onview()">View</button>--->
+                  <button type="button" class="btn btn-primary mr-3" style="margin-right: 10px;"(click)="onview()">View</button>
                 </div>
               </div>
             </div>
@@ -124,7 +128,7 @@
         <th>
           Approve
         </th>
-       
+
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
@@ -138,7 +142,6 @@
           </span>
         </td>
 
-
         <td *ngFor="let col of columns" [style.text-align]="col.align" class="td-border">
           <span class="p-column-title">
             {{col.header}} :
@@ -151,28 +154,27 @@
           <span class="p-column-title">
             Edit/Update :
           </span>
-          <span><p-button label="Edit" icon="pi pi-check" iconPos="right" (onClick)="onEdit(rowData)"></p-button></span>
+          <span>
+            <p-button label="Edit" icon="pi pi-check" iconPos="right" (onClick)="onEdit(rowData)"></p-button>
+          </span>
         </td>
         <td class="td-border">
           <span class="p-column-title">
             Approved :
           </span>
           <span>
-            <button icon="pi pi-exclamation-circle" *ngIf="(rowData.approvalstatus == 0)"
-            pButton type="button" label="Approve" pTooltip="Toggle to Approve"
-            style="background: #08747b !important;"
-            (click)="onApprove(rowData, 0)">
-        </button>
-            <button icon="pi pi-check" *ngIf="(rowData.approvalstatus == 1)" pButton
-                type="button" label="Disapprove" pTooltip="Toggle to Disapprove" style="background: green !important;"
-                (click)="onApprove(rowData, 1)">
+            <button icon="pi pi-exclamation-circle" *ngIf="(rowData.approvalstatus == 0)" pButton type="button"
+              label="Approve" pTooltip="Toggle to Approve" style="background: #08747b !important;"
+              (click)="onApprove(rowData, 0)">
             </button>
-            </span>
-            </td>
+            <button icon="pi pi-check" *ngIf="(rowData.approvalstatus == 1)" pButton type="button" label="Disapprove"
+              pTooltip="Toggle to Disapprove" style="background: green !important;" (click)="onApprove(rowData, 1)">
+            </button>
+          </span>
+        </td>
       </tr>
     </ng-template>
   </p-table>
 </section>
-
 
 </html>

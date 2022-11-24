@@ -39,7 +39,6 @@
                       <label class="form-label" for="form3Example1n">Reg No</label><span
                         class="form-mandatory-field">*</span>
                       <input type="number" id="form3Example1n" class="form-control form-control-lg"  [(ngModel)]="studentregno"/>
-
                     </div>
                   </div>
                 </div>
@@ -91,14 +90,12 @@
                 <button class="btn btn-primary mr-3" style="margin-right: 10px;" (click)="onSave()"  [disabled]="(!studentname||  !studentregno|| !bookedition|| !bookcategory|| !publishdate)">Submit</button>
                 <button class="btn btn-primary mr-3" style="margin-right: 10px;" (click)="onview()">view</button>
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]"
   responsiveLayout="scroll" styleClass="p-datatable-gridlines">
   <ng-template pTemplate="header" let-columns>

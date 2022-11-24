@@ -34,7 +34,8 @@ export class LibpageComponent implements OnInit {
   //   this.restApiService.get(PathConstants.bookdetails_Get).subscribe(res => {this.data = res })
   // }
 onStudent(){
+  this.router.navigate(['/bookdetails']);
+}
  
 }
 
-}

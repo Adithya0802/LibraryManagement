@@ -15,14 +15,13 @@ export class BookdetailsComponent implements OnInit {
   studentregno:any;
   bookedition:any;
   bookcategory:any;
-  
   publishdate:any;
- cols:any;
- id:any;
- data:any;
- selectedCountry: any;
- selectedCity3:any;
-    countries: any[] = [];
+  cols:any;
+  id:any;
+  data:any;
+  selectedCountry: any;
+  selectedCity3:any;
+  countries: any[] = [];
     
 //item:any[]=[];
     groupedCities: SelectItemGroup[];

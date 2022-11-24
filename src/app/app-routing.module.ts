@@ -17,6 +17,7 @@ import { BookinfoComponent } from './bookinfo/bookinfo.component';
 import { LibpageComponent } from './libpage/libpage.component';
 import { ViewbookComponent } from './viewbook/viewbook.component';
 import { SettingComponent } from './setting/setting.component';
+import { ComponentComponent } from './component/component.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path : 'bookstatus',component: BookdetailsComponent},
   { path : 'viewbook',component:ViewbookComponent },
   { path : 'setting', component:SettingComponent},
+  { path : 'component',component:ComponentComponent}
 
 ];
 

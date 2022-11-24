@@ -11,7 +11,6 @@ import { IssuebookComponent } from './issuebook/issuebook.component';
 import { HomeComponent } from './home/home.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
 import { ForgetComponent } from './forget/forget.component';
 import { LibrarienComponent } from './librarien/librarien.component';
 import { StatusComponent } from './status/status.component';
@@ -36,7 +35,6 @@ import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 // import { ConfirmationService } from 'primeng/api';
 import { MatButtonModule } from '@angular/material/button';
-
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -48,6 +46,8 @@ import { LibpageComponent } from './libpage/libpage.component';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import { ViewbookComponent } from './viewbook/viewbook.component';
 import { SettingComponent } from './setting/setting.component';
+import { ComponentComponent } from './component/component.component';
+
 
 
 
@@ -73,6 +73,7 @@ import { SettingComponent } from './setting/setting.component';
     LibpageComponent,
     ViewbookComponent,
     SettingComponent,
+    ComponentComponent,
    
   ],
   imports: [

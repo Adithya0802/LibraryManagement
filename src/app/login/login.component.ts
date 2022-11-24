@@ -12,6 +12,7 @@ import { RestAPIService } from '../restapi.service';
 })
 
 export class LoginComponent implements OnInit {
+  
 
 
   onLogin() {
@@ -24,14 +25,12 @@ export class LoginComponent implements OnInit {
   number: any;
   data:any[]=[];
 
-  CheckApplicaitonStatus() {
+  CheckApplicationStatus() {
     throw new Error('Method not implemented.');
   }
   onShowPswd() {
     throw new Error('Method not implemented.');
   }
-
-
 
   constructor(private router: Router,private restApiService: RestAPIService) { }
 
@@ -51,7 +50,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.data.forEach((i:any) => {
       if(
-        i.regno === this.number && this.password === this.password) {
+        i.regno === this.number && i.repeatpassword === this.password) {
           this.router.navigate(['/bookdetails'])
         } 
         else{

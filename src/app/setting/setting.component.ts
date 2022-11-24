@@ -32,33 +32,31 @@ export class SettingComponent implements OnInit {
   NumericErrMsg: boolean = false;
   UpperCaseErrMsg: boolean = false;
   LengthErrMsg: boolean = false;
-  blockspace: RegExp = /[^\s]/;
+  blockSpace: RegExp = /[^\s]/;
   id: any;
+  oldPassword:any;
+  logged_user: any;
+  disableSave: boolean=false;
 
   constructor(private restApiService: RestAPIService) { }
   ngOnInit(): void {
     this.cols = [
-      { field: 'firstname', header: 'FirstName', align: 'left !important' },
-      { field: 'lastname', header: 'LastName', align: 'left !important' },
-      { field: 'email', header: 'Email', align: 'right !important' },
-      { field: 'phoneno', header: 'Phoneno', align: 'left !important' },
-      { field: 'oldpassword', header: 'Oldpassword', align: 'left !important' },
-      { field: 'newpassword', header: 'Newpassword', align: 'left !important' },
-      { field: 'confirmpassword', header: 'Confrimpassword', align: 'left !important' },
+      
+      { field: 'oldPassword', header: 'Oldpassword', align: 'left !important' },
+      { field: 'newPassword', header: 'Newpassword', align: 'left !important' },
+      { field: 'confirmPassword', header: 'Confrimpassword', align: 'left !important' },
     ]
 
   }
   onSave() {
     const params = {
-      'firstname': this.firstname,
-      'lastname': this.lastname,
-      'email': this.email,
-      'phoneno': this.phoneno,
-      'oldpassword': this.oldpassword,
-      'newpassword': this.newpassword,
-      'confirmpassword': this.confirmpassword,
-    };
+      'oldPassword': this.oldPassword,
+      'newPassword': this.newPassword,
+      'confirmPassword': this.confirmPassword,
+
+    }
     this.restApiService.post(PathConstants.setting_Post, params).subscribe(res => { })
+    this.clearForm();
   }
   onView() {
     this.restApiService.get(PathConstants.set_Get).subscribe(res => {
@@ -73,9 +71,11 @@ export class SettingComponent implements OnInit {
       if (this.newPassword.trim() !== this.confirmPassword.trim()) {
         this.showErrMsg = true;
         this.showMatchMsg = false;
+        this.disableSave=false;
       } else {
         this.showErrMsg = false;
         this.showMatchMsg = true;
+        this.disableSave=true;
       }
     } else {
       this.showErrMsg = false;
@@ -86,30 +86,39 @@ export class SettingComponent implements OnInit {
 
     if (password.match(/[@$!%*?&]/g)) {
       this.SpecialCharErrMsg = false;
+      this.disableSave=false;
     } else {
       this.SpecialCharErrMsg = true;
       this.pswdStrongMsg = false;
+      this.disableSave=true;
     }
     if (password.match(/[0-9]/g)) {
       this.NumericErrMsg = false;
+      this.disableSave=false;
     } else {
       this.NumericErrMsg = true;
       this.pswdStrongMsg = false;
+      this.disableSave=true;
     }
     if (password.match(/[A-Z]/g)) {
       this.UpperCaseErrMsg = false;
+      this.disableSave=false;
     } else {
       this.UpperCaseErrMsg = true;
       this.pswdStrongMsg = false;
+      this.disableSave=true;
     }
     if (password.length >= 8) {
       this.LengthErrMsg = false;
+      this.disableSave=false;
     } else {
       this.LengthErrMsg = true;
       this.pswdStrongMsg = false;
+      this.disableSave=true;
     }
     if (password.match(/[@$!%*?&]/g) && password.match(/[0-9]/g) && password.match(/[A-Z]/g) && password.length > 8)
       this.pswdStrongMsg = true;
+      this.disableSave=false;
   }
 
 
@@ -117,9 +126,7 @@ export class SettingComponent implements OnInit {
     confirmpassword: any;
     newpassword: any;
     oldpassword: any;
-    phoneno: any;
-    email: any;
-    lastname: any;
+    
 
     sno: any; firstname: any;
 
@@ -128,16 +135,21 @@ export class SettingComponent implements OnInit {
     if (selectedRow !== null && selectedRow !== undefined) {
 
       this.id = selectedRow.sno;
-      this.firstname = selectedRow.firstname;
-      this.lastname = selectedRow.lastname;
-      this.email = selectedRow.email;
-      this.phoneno = selectedRow.phoneno;
       this.oldpassword = selectedRow.oldpassword;
       this.newpassword = selectedRow.newpassword;
       this.confirmpassword = selectedRow.confirmpassword;
 
     }
   }
-}
+  clearForm() {
+
+    this.oldPassword = null;
+    this.newPassword=null;
+    this.confirmPassword=null;
+   }
+   
+   }
+   
+
 
 

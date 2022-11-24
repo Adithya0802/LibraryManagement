@@ -10,13 +10,14 @@ import { RestAPIService } from '../restapi.service';
   styleUrls: ['./libreg.component.css']
 })
 export class LibregComponent implements OnInit {
- 
+
  confirmPassword: any;
  email: any;
  showTable!: boolean;
  commodityGroups?: any;
  checked2:boolean=true;
  value: any;
+ pro='selvam'
  id:any;
  cols: any;
  data: any[] =[];
@@ -30,7 +31,6 @@ export class LibregComponent implements OnInit {
  productionHouse:any;
  showErrMsg !: boolean;
  showMatchMsg!: boolean;
- 
  stateArr:any;
  SpecialCharErrMsg: boolean=false;
  pswdStrongMsg: boolean=false;
@@ -42,10 +42,10 @@ export class LibregComponent implements OnInit {
  newPassword: any;
  name:any;
  repeatpassword: any;
-  private _libreg: any;
-  confirmpassword:any;
-  disableSave: boolean=false;
-
+ private _libreg: any;
+ confirmpassword:any;
+ disableSave: boolean=false;
+ validatePassword: boolean = false;
 
 
   constructor(private restApiService: RestAPIService) { }
@@ -63,15 +63,17 @@ export class LibregComponent implements OnInit {
   }
 
   onSave() {
+    console.log("==",this.email)
     const params = {
       'name': this.name,
       'email': this.email,
       'password': this.password,
       'repeatpassword': this.repeatpassword,
-
     };
     this.restApiService.post(PathConstants.LibReg_Post, params).subscribe(res => { })
     this.clearForm();
+
+    
   }
   onView(){
     this.restApiService.get(PathConstants.Libreg_Get).subscribe(res =>{
@@ -102,40 +104,41 @@ export class LibregComponent implements OnInit {
 
      if (repeatpassword.match(/[@$!%*?&]/g)) {
      this.SpecialCharErrMsg = false;
-     this.disableSave=false;
+     this.validatePassword=true;
+
      } else {
      this.SpecialCharErrMsg = true;
      this.pswdStrongMsg = false;
-     this.disableSave=true;
+     this.validatePassword=false;
     }    
    if (repeatpassword.match(/[0-9]/g)) {   
      this.NumericErrMsg = false;
-     this.disableSave=false;
+     this.validatePassword=true;
     } else {    
     this.NumericErrMsg = true;    
     this.pswdStrongMsg = false;  
-    this.disableSave=true;
+    this.validatePassword=false;
 
     }    
     if (repeatpassword.match(/[A-Z]/g)) {    
     this.UpperCaseErrMsg = false;  
-    this.disableSave=false;  
+    this.validatePassword=true;  
     } else {    
     this.UpperCaseErrMsg = true;    
     this.pswdStrongMsg = false;  
-    this.disableSave=true;  
+    this.validatePassword=false;  
     }    
     if (repeatpassword.length >= 8) {    
     this.LengthErrMsg = false;   
-    this.disableSave=false; 
+    this.validatePassword=true; 
     } else {    
     this.LengthErrMsg = true;    
     this.pswdStrongMsg = false;
-    this.disableSave=true;
+    this.validatePassword=false;
     }
     if (repeatpassword.match(/[@$!%*?&]/g) && repeatpassword.match(/[0-9]/g) && repeatpassword.match(/[A-Z]/g) && repeatpassword.length > 8)
     this.pswdStrongMsg = true;
-    this.disableSave=false;
+    // this.validatePassword=false;
    }
 
 
@@ -156,14 +159,11 @@ export class LibregComponent implements OnInit {
       this.email = selectedRow.email;
       this.password = selectedRow.password;
       this.repeatpassword = selectedRow.repeatpassword;
-
-
     }
-    
-}
+  }
 clearForm() {
- this.name = null;
- this.email = null;
+
+
  this.password=null;
  this.repeatpassword=null;
 }

@@ -78,7 +78,6 @@ this.onclear();
       this.date = selectedRow.date;
       this.copies = selectedRow.copies;
       this.shelf = selectedRow.shelf;
-      
     }
   }
   onclear(){

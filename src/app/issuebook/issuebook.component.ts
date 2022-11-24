@@ -9,6 +9,7 @@ import { RestAPIService } from '../restapi.service';
   styleUrls: ['./issuebook.component.css']
 })
 export class IssuebookComponent implements OnInit {
+ 
   bookid: any;
   bookname: any;
   studentregno: any;
@@ -27,7 +28,8 @@ export class IssuebookComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.onview();
+
+
     this.cols = [
 
       { field: 'bookid', header: 'BookId', align: 'left !important' },
@@ -51,6 +53,7 @@ export class IssuebookComponent implements OnInit {
       'borrowdate': this.borrowdate,
       'issuedate': this.issuedate,
       'externdate': this.externdate,
+      'approvalstatus':0,
 
     }
     this.restApiService.post(PathConstants.bookissues_Post, params).subscribe(res => { })

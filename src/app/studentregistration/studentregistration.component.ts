@@ -46,6 +46,8 @@ export class StudentregistrationComponent implements OnInit {
   UpperCaseErrMsg:any;
   LengthErrMsg:any;
   disableSave:boolean=false;
+  router: any;
+  validatePassword: boolean = false;
 
  
   constructor(private restApiService: RestAPIService) { }
@@ -88,9 +90,18 @@ export class StudentregistrationComponent implements OnInit {
     'emailid':this.emailid,
     'password':this.password,
     'confirmpassword':this.confirmpassword,
-
-
 }
+console.log(this.regno);
+this.data.forEach((i:any) => {
+  if(
+    i.regno !== this.regno ) {
+      
+    } 
+    else{
+      console.log(null);
+    }
+  
+})
 this.restApiService.post(PathConstants.studentregs_Post, params).subscribe(res => { })
   }
   onview(){
@@ -152,44 +163,45 @@ checkPassword() {
   }
 }
 
-check(password:any) {
+check(confirmpassword:any) {
 
-   if (password.match(/[@$!%*?&]/g)) {
+   if (confirmpassword.match(/[@$!%*?&]/g)) {
    this.SpecialCharErrMsg = false;
-   this.disableSave=false;
+   this.validatePassword=true;
+
    } else {
    this.SpecialCharErrMsg = true;
    this.pswdStrongMsg = false;
-   this.disableSave=true;
+  this.validatePassword=false;
   }    
- if (password.match(/[0-9]/g)) {   
+ if (confirmpassword.match(/[0-9]/g)) {   
    this.NumericErrMsg = false;
-   this.disableSave=false;
+  this.validatePassword=true;
   } else {    
   this.NumericErrMsg = true;    
   this.pswdStrongMsg = false;  
-  this.disableSave=true;  
+  this.validatePassword=false;
   }    
-  if (password.match(/[A-Z]/g)) {    
+  if (confirmpassword.match(/[A-Z]/g)) {    
   this.UpperCaseErrMsg = false;   
-  this.disableSave=false; 
+  this.validatePassword=true;
   } else {    
   this.UpperCaseErrMsg = true;    
   this.pswdStrongMsg = false;    
-  this.disableSave=true;
+  this.validatePassword=false;
 
   }    
-  if (password.length >= 8) {    
+  if (confirmpassword.length >= 8) {    
   this.LengthErrMsg = false;    
-  this.disableSave=false;
+  this.validatePassword=true;
   } else {    
   this.LengthErrMsg = true;    
   this.pswdStrongMsg = false;
-  this.disableSave=true;
+  this.validatePassword=false;
   }
-  if (password.match(/[@$!%*?&]/g) && password.match(/[0-9]/g) && password.match(/[A-Z]/g) && password.length > 8)
+  if (confirmpassword.match(/[@$!%*?&]/g) && confirmpassword.match(/[0-9]/g) && confirmpassword.match(/[A-Z]/g) && confirmpassword.length > 8)
   this.pswdStrongMsg = true;
-  this.disableSave=false;
+  
  }
 
 public CalculateAge(): void
