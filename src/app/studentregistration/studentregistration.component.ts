@@ -11,10 +11,8 @@ import { RestAPIService } from '../restapi.service';
 export class StudentregistrationComponent implements OnInit {
   
   pincode: any;
-
   pincode_max: any;
   id:any=0;
-  
   Password: any;
   confirmpassword: any;
   fathername:any;
@@ -106,21 +104,24 @@ this.data.forEach((i:any) => {
   
 })
 this.restApiService.post(PathConstants.studentregs_Post, params).subscribe(res => { })
-// this.data.forEach((j:any) => {
-//   if(
-//     j.regno !== this.regno) {
-     
-//     } 
-//     else{
-//       console.log(null);
-//     }
-  
-// })
+
   }
   onview(){
     this.restApiService.get(PathConstants.studentregs_Get).subscribe(res => {this.data = res })
   }
-  
+  oncheck()
+
+  {
+    this.data.forEach((i:any) => {
+      if(i.regno == this.regno) {
+      this.regno = null;
+      }
+      else{
+          console.log('fail');
+        }
+    })
+
+  }
   onEdit(selectedRow: {
   
    sno: any;

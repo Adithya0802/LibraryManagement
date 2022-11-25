@@ -57,7 +57,7 @@
                            <option *ngFor="let i of index.items" value={{i.value}}> {{i.label}}
                            </option>
                           </optgroup>
-                    </select>
+                        </select>
 
                     </div>
 
@@ -70,7 +70,7 @@
 
                     </div>
                   </div>
-                </div>
+              
 
 
                 <div class="d-flex flex-row align-items-center mb-4">
@@ -132,13 +132,10 @@
         </div>
       </div>
     </div>
-
-
+  </div>
 </section>
-<br>
-<br>
-<br>
-<div></div>
+</html>
+
 <p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]" responsiveLayout="scroll"
   styleClass="p-datatable-gridlines">
   <ng-template pTemplate="header" let-columns>

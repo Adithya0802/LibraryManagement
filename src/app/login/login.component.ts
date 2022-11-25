@@ -11,11 +11,8 @@ import { RestAPIService } from '../restapi.service';
 
 export class LoginComponent implements OnInit {
   
-
-
   onLogin() {
     throw new Error('Method not implemented.');
-
   }
   password: any;
   username: any;
@@ -29,7 +26,6 @@ export class LoginComponent implements OnInit {
   onShowPswd() {
     throw new Error('Method not implemented.');
   }
-
   constructor(private router: Router,private restApiService: RestAPIService) { }
 
 
@@ -37,7 +33,6 @@ export class LoginComponent implements OnInit {
     {
       this.restApiService.get(PathConstants.studentregs_Get).subscribe(res => {this.data = res })
     }
-    
   }
 
   onSave() {
@@ -47,15 +42,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.data.forEach((i:any) => {
       if(
-        i.regno === this.number && i.repeatpassword === this.password) {
+        i.regno === this.number && i.password === this.password) {
           this.router.navigate(['/bookdetails'])
         } 
         else{
           console.log('no match');
         }
-      
     })
-    
   }
-
 }

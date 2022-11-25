@@ -101,6 +101,10 @@ export class LibregComponent implements OnInit {
     }
   }
 
+
+
+  
+
   check(repeatpassword: any) {
 
      if (repeatpassword.match(/[@$!%*?&]/g)) {
