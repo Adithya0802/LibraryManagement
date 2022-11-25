@@ -37,6 +37,8 @@ export class SettingComponent implements OnInit {
   oldPassword:any;
   logged_user: any;
   disableSave: boolean=false;
+  validatePassword: boolean = false;
+  
 
   constructor(private restApiService: RestAPIService) { }
   ngOnInit(): void {
@@ -58,12 +60,7 @@ export class SettingComponent implements OnInit {
     this.restApiService.post(PathConstants.setting_Post, params).subscribe(res => { })
     this.clearForm();
   }
-  onView() {
-    this.restApiService.get(PathConstants.set_Get).subscribe(res => {
-      this.data = res
-    })
-  }
-
+  
 
   checkPassword() {
     if (this.password !== undefined && this.password !== null && this.password.trim() !== '' &&
@@ -82,65 +79,36 @@ export class SettingComponent implements OnInit {
     }
   }
 
-  check(password: any) {
+  check(newPassword: any) {
 
-    if (password.match(/[@$!%*?&]/g)) {
-      this.SpecialCharErrMsg = false;
-      this.disableSave=false;
+    if (newPassword.match(/[@$!%*?&]/g)) {
+    this.SpecialCharErrMsg = false;
     } else {
-      this.SpecialCharErrMsg = true;
-      this.pswdStrongMsg = false;
-      this.disableSave=true;
-    }
-    if (password.match(/[0-9]/g)) {
-      this.NumericErrMsg = false;
-      this.disableSave=false;
-    } else {
-      this.NumericErrMsg = true;
-      this.pswdStrongMsg = false;
-      this.disableSave=true;
-    }
-    if (password.match(/[A-Z]/g)) {
-      this.UpperCaseErrMsg = false;
-      this.disableSave=false;
-    } else {
-      this.UpperCaseErrMsg = true;
-      this.pswdStrongMsg = false;
-      this.disableSave=true;
-    }
-    if (password.length >= 8) {
-      this.LengthErrMsg = false;
-      this.disableSave=false;
-    } else {
-      this.LengthErrMsg = true;
-      this.pswdStrongMsg = false;
-      this.disableSave=true;
-    }
-    if (password.match(/[@$!%*?&]/g) && password.match(/[0-9]/g) && password.match(/[A-Z]/g) && password.length > 8)
-      this.pswdStrongMsg = true;
-      this.disableSave=false;
+    this.SpecialCharErrMsg = true;
+    this.pswdStrongMsg = false;
+   }    
+  if (newPassword.match(/[0-9]/g)) {   
+    this.NumericErrMsg = false;
+   } else {    
+   this.NumericErrMsg = true;    
+   this.pswdStrongMsg = false;    
+   }    
+   if (newPassword.match(/[A-Z]/g)) {    
+   this.UpperCaseErrMsg = false;    
+   } else {    
+   this.UpperCaseErrMsg = true;    
+   this.pswdStrongMsg = false;    
+   }    
+   if (newPassword.length >= 8) {    
+   this.LengthErrMsg = false;    
+   } else {    
+   this.LengthErrMsg = true;    
+   this.pswdStrongMsg = false;
+   }
+   if (newPassword.match(/[@$!%*?&]/g) && newPassword.match(/[0-9]/g) && newPassword.match(/[A-Z]/g) && newPassword.length > 8)
+   this.pswdStrongMsg = true;
   }
 
-
-  onEdit(selectedRow: {
-    confirmpassword: any;
-    newpassword: any;
-    oldpassword: any;
-    
-
-    sno: any; firstname: any;
-
-  } | null | undefined) {
-
-    if (selectedRow !== null && selectedRow !== undefined) {
-
-      this.id = selectedRow.sno;
-      this.oldpassword = selectedRow.oldpassword;
-      this.newpassword = selectedRow.newpassword;
-      this.confirmpassword = selectedRow.confirmpassword;
-
-    }
-  }
   clearForm() {
 
     this.oldPassword = null;
