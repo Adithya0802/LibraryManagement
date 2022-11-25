@@ -24,9 +24,6 @@ export class ResponseMessage {
     public static readonly NetworkErrorMessage = 'Please check your Network Connectivity!';
     public static readonly ValidDateErrorMessage = 'Please select a valid date range!';
     public static readonly PasswordMatchErrorMessage = 'Password did not match!';
-    public static readonly GreetingMsgI = 'Good Morning !';
-    public static readonly GreetingMsgII = 'Good Afternoon !';
-    public static readonly GreetingMsgIII = 'Good Evening !';
     public static readonly DOAprrovalMessage = 'Approval sent for ';
     public static readonly MeetingSuccess = 'Meeting created successfully!';
     public static readonly DeleteSuccessMsg = 'Deleted successfully !';
@@ -43,19 +40,7 @@ export class ResponseMessage {
     public static readonly EndDateMsg = 'End Date Updated Successfully!';
     public static readonly AadharMsg = 'Please enter valid aadhar number!';
 
-    public static readonly SelectHostelType = 'Please select Hostel Type';
-    public static readonly TalukSelectionMsg = 'Please select district to select taluk !';
-    public static readonly AttendanceimageRestrict = 'You can upload only five image in a day';
-    public static readonly ExistingdataMessage = 'OB Data Available. Use Edit Option';
-    public static readonly Biometricvalidate = 'Biometric Device Available. Pemission Denied';
-    public static readonly NoImageMsg = 'No Images found!';
-    public static readonly DisApprovedSuccess = 'Disapproved';
-    public static readonly NoInstituteFound = 'No institutes found !';
-    public static readonly SanctionedEligibiltyErr = 'Cannot select student more than sanctioned strength !';
-    public static readonly CheckUserNameExists = 'Username already exists! Please try different username ';
-    public static readonly SelectDistrict = 'Please select District to view!';
-    public static readonly ValidForm = 'All mandatory fields are filled. Please submit the form !';
-
+    
 
  
 } 

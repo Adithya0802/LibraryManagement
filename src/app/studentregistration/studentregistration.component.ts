@@ -49,13 +49,16 @@ export class StudentregistrationComponent implements OnInit {
   disableSave:boolean=false;
   disableemail: boolean=false;
   Specialemailerr: boolean |undefined;
-  validatePassword: boolean=false;
-  
+  validatePassword:boolean=false;
+  specialerr:boolean=false;
+  disablereg:boolean=false;
+ 
   constructor(private restApiService: RestAPIService) { 
 
   }
 
   ngOnInit(): void {
+    this.onview();
     this.cols = [
       { field: 'firstname', header: 'Firstname', align: 'left !important' },
       { field: 'lastname', header: 'Lastname', align: 'left !important' },
@@ -76,7 +79,7 @@ export class StudentregistrationComponent implements OnInit {
   }
   
   onSave(){  
-    console.log("++",this.regno);
+    
     const params = {    'sno':this.id,
     'firstname':this.firstname,
     'lastname':this.lastname,
@@ -93,32 +96,34 @@ export class StudentregistrationComponent implements OnInit {
     'emailid':this.emailid,
     'password':this.password,
     'confirmpassword':this.confirmpassword,
+
 }
-console.log(this.regno);
-this.data.forEach((i:any) => {
-  if(
-    i.regno !== this.regno ) {
-      
-    } 
-    else{
-      console.log(null);
-    }
-  
-})
 this.restApiService.post(PathConstants.studentregs_Post, params).subscribe(res => { })
-// this.data.forEach((j:any) => {
-//   if(
-//     j.regno !== this.regno) {
-     
-//     } 
-//     else{
-//       console.log(null);
-//     }
-  
-// })
+
   }
   onview(){
     this.restApiService.get(PathConstants.studentregs_Get).subscribe(res => {this.data = res })
+  }
+  oncheck()
+  {
+    this.data.forEach((i:any) => {
+      if(i.regno == this.regno) {
+      this.regno = null;
+      this.specialerr=false;
+      // this.disablereg=false;
+      console.log('success',this.regno);
+
+      }
+        else{
+          console.log('fail',this.regno);
+          this.specialerr=true;
+          // this.disablereg=true;
+        }
+      
+    })
+  }
+  onclear() {
+    throw new Error('Method not implemented.');
   }
   
   onEdit(selectedRow: {
@@ -177,45 +182,44 @@ checkPassword() {
   }
 }
 
-check(confirmpassword:any) {
+check(password:any) {
 
-   if (confirmpassword.match(/[@$!%*?&]/g)) {
+   if (password.match(/[@$!%*?&]/g)) {
    this.SpecialCharErrMsg = false;
-   this.validatePassword=true;
-
+   this.disableSave=false;
    } else {
    this.SpecialCharErrMsg = true;
    this.pswdStrongMsg = false;
-  this.validatePassword=false;
+   this.disableSave=true;
   }    
- if (confirmpassword.match(/[0-9]/g)) {   
+ if (password.match(/[0-9]/g)) {   
    this.NumericErrMsg = false;
-  this.validatePassword=true;
+   this.disableSave=false;
   } else {    
   this.NumericErrMsg = true;    
   this.pswdStrongMsg = false;  
-  this.validatePassword=false;
+  this.disableSave=true;  
   }    
-  if (confirmpassword.match(/[A-Z]/g)) {    
+  if (password.match(/[A-Z]/g)) {    
   this.UpperCaseErrMsg = false;   
-  this.validatePassword=true;
+  this.disableSave=false; 
   } else {    
   this.UpperCaseErrMsg = true;    
   this.pswdStrongMsg = false;    
-  this.validatePassword=false;
+  this.disableSave=true;
 
   }    
-  if (confirmpassword.length >= 8) {    
+  if (password.length >= 8) {    
   this.LengthErrMsg = false;    
-  this.validatePassword=true;
+  this.disableSave=false;
   } else {    
   this.LengthErrMsg = true;    
   this.pswdStrongMsg = false;
-  this.validatePassword=false;
+  this.disableSave=true;
   }
-  if (confirmpassword.match(/[@$!%*?&]/g) && confirmpassword.match(/[0-9]/g) && confirmpassword.match(/[A-Z]/g) && confirmpassword.length > 8)
+  if (password.match(/[@$!%*?&]/g) && password.match(/[0-9]/g) && password.match(/[A-Z]/g) && password.length > 8)
   this.pswdStrongMsg = true;
-  
+  this.disableSave=false;
  }
 
  checkemail()

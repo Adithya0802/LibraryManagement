@@ -50,8 +50,10 @@
                       <div class="form-outline">
                         <label class="form-label" for="form3Example1m1">Reg no</label><span
                         class="form-mandatory-field">*</span>
-                        <input type="text" id="form3Example1m1" class="form-control form-control-lg" [(ngModel)]="regno"/>
-                       
+                        <input type="text" id="form3Example1m1" class="form-control form-control-lg" min="3" (input)="oncheck()" [(ngModel)]="regno"/>
+                        <div *ngIf="specialerr"
+                        style="color: rgb(250, 15, 62); font-size: 12px; text-align: left;">Already Existing!</div>
+                        
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
@@ -221,7 +223,7 @@
   
                   <div class="d-flex justify-content-end pt-3">
                     <button type="button" class="btn btn-light btn-lg" (click)="onview()">view</button>
-                    <button type="button" class="btn btn-warning btn-lg ms-2"(click)="onSave()" [disabled]="(!firstname|| !lastname|| !regno|| !fathername|| !gender|| !dataofbirth|| !address|| !pincode|| !collegename|| !course|| !department|| !emailid|| !password|| !confirmpassword|| !disableSave || !validatePassword)">Submit form</button>
+                    <button type="button" class="btn btn-warning btn-lg ms-2"(click)="onSave()" [disabled]="(!firstname|| !lastname|| !regno|| !fathername|| !gender|| !dataofbirth|| !address|| !pincode|| !collegename|| !course|| !department|| !emailid|| !password|| !confirmpassword|| !disableSave|| !validatePassword||  !disablereg)">Submit form</button>
                   </div>
   
                 </div>

@@ -2,11 +2,17 @@
 <html lang="en">
 
 <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <section class="vh-100" style="background-color: #eee;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -18,17 +24,12 @@
                 <br>
                 <br>
                 <br>
+
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">ADD BOOK</p>
 
                 <!-- <form class="mx-1 mx-md-4"> -->
 
-                <div class="d-flex flex-row align-items-center mb-4">
-                  <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">The Book Subject</label><span
-                      class="form-mandatory-field">*</span>
-                    <input type="text" id="form3Example1c" class="form-control" [(ngModel)]="subject">
-                  </div>
-                </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
 
                     <div class="form-outline flex-fill mb-0">
                       <label class="form-label" for="form3Example1m">Book subject</label><span
@@ -41,6 +42,7 @@
                         <option value="5">storybook</option>
                         </select>
 
+                    </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
@@ -70,54 +72,59 @@
 
                     </div>
                   </div>
-                </div>
 
 
-                <div class="d-flex flex-row align-items-center mb-4">
-                  <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example4c">Published Name</label><span
-                      class="form-mandatory-field">*</span>
-                    <div> <input type="name" class="form-control " name="_name" pInputText minlength="8" maxlength="12"
+                  <div class="d-flex flex-row align-items-center mb-4" style="margin-right:10px">
+
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example3c">Published Name</label><span
+                        class="form-mandatory-field">*</span>
+
+                     <input type="name" class="form-control " name="_name" 
                         required [(ngModel)]="name">
+
+                      </div>
+            
+
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example3c">Published Date</label><span
+                        class="form-mandatory-field">*</span>
+                        <input placeholder="Select date" type="date" id="example" class="form-control"
+                          [(ngModel)]="date">
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example4cd">The number of copies</label><span
+                        class="form-mandatory-field">*</span>
+
+                      <div> <input type="number" class="form-control form-control" name="_copies" pInputText
+                          minlength="8" maxlength="12" [(ngModel)]="copies"></div>
+
+
                     </div>
                   </div>
 
                   <div class="form-outline flex-fill mb-0">
-                    <label for="example">Published Date</label><span class="form-mandatory-field">*</span>
-                    <div id="date" class=" datepicker">
-                      <input placeholder="Select date" type="date" id="example" class="form-control" [(ngModel)]="date">
-                      <i class="calendar" tabindex=0></i>
-                    </div>
-
-                  </div>
-                </div>
-
-
-                <div class="d-flex flex-row align-items-center mb-4">
-                  <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example4cd">The number of copies</label><span
+                    <label class="form-label" for="form3Example4c">Shelf No</label><span
                       class="form-mandatory-field">*</span>
-                    <div> <input type="number" class="form-control form-control" name="_copies" pInputText minlength="8"
-                        maxlength="4" [(ngModel)]="copies"></div>
+
+                    <div> <input type="number" class="form-control " name="_no" pInputText minlength="8" maxlength="12"
+                        required [(ngModel)]="shelf">
+
+                    </div>
                   </div>
-                </div>
+                 
 
-                <div class="form-outline flex-fill mb-0">
-                  <label class="form-label" for="form3Example4c">Shelf No</label><span
-                    class="form-mandatory-field">*</span>
 
-                  <div> <input type="number" class="form-control " name="_no" pInputText minlength="8" maxlength="12"
-                      required [(ngModel)]="shelf">
-
+                  <div class="py-3 pb-4 border-bottom">
+                    <button class="btn btn-primary mr-3" (click)="onSubmit()" [disabled]="(!subject|| !title||!author||!name||!date||!copies||!shelf)"
+                      style="margin-right: 10px;">Submit</button>
+                   <!-- <button class="btn btn-primary mr-3" (click)="onView()">view</button>-->
                   </div>
-                </div>
-                <br>
-                <div class="py-3 pb-4 border-bottom">
-                  <button class="btn btn-primary mr-3" (click)="onSubmit()"
-                    [disabled]="(!subject|| !title||!author||!name||!date||!copies||!shelf)"
-                    style="margin-right: 10px;">Submit</button>
-                  <!-- <button class="btn btn-primary mr-3" (click)="onView()">view</button>-->
-                </div>
 
                 <!-- </form> -->
 
@@ -132,52 +139,48 @@
         </div>
       </div>
     </div>
-
-
+</div>
 </section>
-<br>
-<br>
-<br>
-<div></div>
-<p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]" responsiveLayout="scroll"
-  styleClass="p-datatable-gridlines">
-  <ng-template pTemplate="header" let-columns>
+</html>
+  <p-table [columns]="cols" [value]="data" [rows]="10" [rowsPerPageOptions]="[5,10,15,20]" responsiveLayout="scroll"
+    styleClass="p-datatable-gridlines">
+    <ng-template pTemplate="header" let-columns>
 
-    <tr>
-      <th>S.No</th>
-      <th *ngFor="let col of columns">
-        {{col.header}}
-      </th>
-      <th>
-        Edit/update
-      </th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
-    <tr>
-      <td class="td-border">
-        <span class="p-column-title">
-          S.No :
-        </span>
-        <span style="text-align: end;">
-          {{rowIndex+1}}
-        </span>
-      </td>
-      <td *ngFor="let col of columns" [style.text-align]="col.align" class="td-border">
-        <span class="p-column-title">
-          {{col.header}} :
-        </span>
-        <span style="text-align: end;"> {{rowData[col.field]}}
-        </span>
+      <tr>
+        <th>S.No</th>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+        <th>
+          Edit/update
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+      <tr>
+        <td class="td-border">
+          <span class="p-column-title">
+            S.No :
+          </span>
+          <span style="text-align: end;">
+            {{rowIndex+1}}
+          </span>
+        </td>
+        <td *ngFor="let col of columns" [style.text-align]="col.align" class="td-border">
+          <span class="p-column-title">
+            {{col.header}} :
+          </span>
+          <span style="text-align: end;"> {{rowData[col.field]}}
+          </span>
 
-      <td>
-        <span class="p-column-title">
-          Edit/Update :
-        </span>
-        <span>
-          <p-button label="Edit" icon="pi pi-check" iconPos="right" (onClick)="onEdit(rowData)"></p-button>
-        </span>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+        <td>
+          <span class="p-column-title">
+            Edit/Update :
+          </span>
+          <span>
+            <p-button label="Edit" icon="pi pi-check" iconPos="right" (onClick)="onEdit(rowData)"></p-button>
+           </span>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>

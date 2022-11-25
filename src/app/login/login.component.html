@@ -42,7 +42,7 @@
 
 
         <button pButton type="button" class="btn btn-primary btn-block mb-4" (click)="onSubmit()"
-         >Sign in</button>
+          [disabled]="(!number|| !password)">Sign in</button>
         <div class="text-center">
           <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="studentregistration"
               class="">Register</a></p>

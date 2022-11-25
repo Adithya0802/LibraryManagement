@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.data.forEach((i:any) => {
       if(
-        i.regno === this.number && i.repeatpassword === this.password) {
+        i.regno === this.number && i.password === this.password) {
           this.router.navigate(['/bookdetails'])
         } 
         else{
